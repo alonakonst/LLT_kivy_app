@@ -16,6 +16,13 @@ WindowManager:
 <WelcomeWindow>:
     name: "welc"
     user_name: user_name
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
 
     FloatLayout:
         size: root.width, root.height
@@ -37,6 +44,7 @@ WindowManager:
             on_release:
                 app.root.current = "second"
             on_press:root.btn()
+
 
 <SecondWindow>:
     name: "second"

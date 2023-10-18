@@ -1,0 +1,60 @@
+<Button>
+    font_size: 32
+    size_hint: (0.8,0.1)
+    color: 0.3, 0.6, 0.7, 1
+
+<TextInput>
+    size_hint: (0.8,0.1)
+
+<Label>
+    color: 0.3, 0.6, 0.7, 1
+
+WindowManager:
+    WelcomeWindow:
+    SecondWindow:
+
+<WelcomeWindow>:
+    name: "welc"
+    user_name: user_name
+
+    FloatLayout:
+        size: root.width, root.height
+
+        Label:
+            text: "Name: "
+            pos_hint: {'x': 0, 'y': 0.8}
+            font_size: self.height
+            size_hint: (0.5, 0.17)
+
+        TextInput:
+            id:user_name
+            multiline:False
+            pos_hint: {"x": 0.1, "y": 0.5}
+
+        Button:
+            pos_hint: {"x": 0.1, "y": 0.2}
+            text:"Submit"
+            on_release:
+                app.root.current = "second"
+            on_press:root.btn()
+
+<SecondWindow>:
+    name: "second"
+
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    FloatLayout:
+
+
+        size: root.width, root.height
+
+        Button:
+            text: "Go back"
+            on_release:
+                app.root.current = "welc"
+

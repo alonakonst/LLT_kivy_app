@@ -1,29 +1,35 @@
 import kivy
 from kivy.app import App
-from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
+from kivy.uix.widget import Widget
+from kivy.properties import ObjectProperty
+from kivy.uix.floatlayout import FloatLayout
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.core.window import Window
 
-class childApp(GridLayout):
-    def __init__(self,**kwargs):
-        super(childApp, self).__init__(**kwargs)
-        self.cols = 1
-        self.add_widget(Label(text='Your Name'))
-        self.s_name = TextInput()
-        self.add_widget(self.s_name)
+class WelcomeWindow(Screen):
+   user_name = ObjectProperty(None)
+
+   def btn(self):
+       print("Name:", self.user_name.text)
+       self.user_name.text = ""
+
+class SecondWindow(Screen):
+    pass
+class WindowManager(ScreenManager):
+    pass
 
 
-        self.press = Button(text = 'Submit')
-        self.press.bind(on_press = self.click_me)
-        self.add_widget(self.press)
+kv = Builder.load_file("style.kv")
 
-    def click_me(self, instance):
-        print("Name of the Student is: " +self.s_name.text)
-
-class parentApp(App):
+class LLTApp(App):
     def build(self):
-        return childApp()
+        #todo put background colour in kv file
+        Window.clearcolor = (1,1,1,1)
+        return kv
 
-if __name__=="__main__":
-    parentApp().run()
+if __name__ == "__main__":
+    LLTApp().run()

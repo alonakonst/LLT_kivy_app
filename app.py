@@ -18,14 +18,20 @@ class WelcomeWindow(Screen):
 
 class SecondWindow(Screen):
     pass
+
+class InsertIntoDictionary(Screen):
+    def submit_new_word(self):
+        print("New word:", self.new_word.text)
+        self.new_word.text = ""
+
 class WindowManager(ScreenManager):
     pass
+
 
 kv = Builder.load_file("style.kv")
 
 class LLTApp(App):
     def build(self):
         return kv
-
 if __name__ == "__main__":
     LLTApp().run()

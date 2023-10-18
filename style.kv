@@ -12,17 +12,18 @@
 WindowManager:
     WelcomeWindow:
     SecondWindow:
+    InsertIntoDictionary:
 
 <WelcomeWindow>:
     name: "welc"
     user_name: user_name
+
     canvas.before:
         Color:
             rgba: (1,1,1,1)
         Rectangle:
             pos: self.pos
             size: self.size
-
 
     FloatLayout:
         size: root.width, root.height
@@ -39,8 +40,15 @@ WindowManager:
             pos_hint: {"x": 0.1, "y": 0.5}
 
         Button:
+            pos_hint: {"x": 0.1, "y": 0.3}
+            text:"Login"
+            on_release:
+                app.root.current = "second"
+            on_press:root.btn()
+
+        Button:
             pos_hint: {"x": 0.1, "y": 0.2}
-            text:"Submit"
+            text:"Continue as a guest"
             on_release:
                 app.root.current = "second"
             on_press:root.btn()
@@ -66,3 +74,37 @@ WindowManager:
             on_release:
                 app.root.current = "welc"
 
+        Button:
+            pos_hint: {"x": 0.1, "y": 0.5}
+            text: "Next"
+            on_release:
+                app.root.current = "insert_into_dict"
+
+<InsertIntoDictionary>
+    name: "insert_into_dict"
+    new_word: new_word
+
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    FloatLayout:
+        size: root.width, root.height
+
+        TextInput:
+            id:new_word
+            multiline:False
+            pos_hint: {"x": 0.1, "y": 0.6}
+
+        Button:
+            text: "Back to start"
+            on_release:
+                app.root.current = "welc"
+
+        Button:
+            text: "Submit to dictionary"
+            pos_hint: {"x": 0.2, "y": 0.2}
+            on_press:root.submit_new_word()

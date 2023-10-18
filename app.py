@@ -22,13 +22,10 @@ class SecondWindow(Screen):
 class WindowManager(ScreenManager):
     pass
 
-
 kv = Builder.load_file("style.kv")
 
 class LLTApp(App):
     def build(self):
-        #todo put background colour in kv file
-        Window.clearcolor = (1,1,1,1)
         return kv
 
 if __name__ == "__main__":

@@ -2,9 +2,9 @@
 
 ### Setup Build Environment
 1. If you are developing on Windows you need to follow [this](https://buildozer.readthedocs.io/en/latest/installation.html#android-on-windows-10-or-11) tutorial before continuing (only section **Android on Windows 10 or 11**)
-2. Make sure you are inside a virtual environment (note the `venv`): 
-    ```
-      (venv) spralja@spralja-hecate LLT_kivy_app % 
+2. run the following command to enter the virtual environment: 
+    ```shell
+      source venv/bin/activate
     ```
 3. Install Dependencies:
     ```bash
@@ -15,9 +15,13 @@
    
 ### Build Process
 1. Plug your android device into your computer using USB, and enable file transfer
-2. Run the following command (inside your virtual environment):
+2. run the following command to enter the virtual environment: 
+    ```shell
+      source venv/bin/activate
+    ```
+3. Run the following command (inside your virtual environment):
    ```bash
       buildozer android debug deploy run
    ```
-3. The first time your build you might have to install dependencies (you will be guided through this by the command)
-4. The app should automatically be opened when you unlock your Android device 
+4. The first time your build you might have to install dependencies (you will be guided through this by the command)
+5. The app should automatically be opened when you unlock your Android device 

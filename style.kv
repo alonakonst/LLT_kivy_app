@@ -64,19 +64,40 @@ WindowManager:
             size: self.size
 
     FloatLayout:
+         size: root.width, root.height
 
-        size: root.width, root.height
+      TextInput:
+          id: username_input
+          multiline: False
+          hint_text: "Username"
+          pos_hint: {"x":0,1,"y":0,6}
 
-        Button:
-            text: "Go back"
-            on_release:
-                app.root.current = "welc"
+
+      TextInput:
+          id: password_input
+          password: True
+          multiline: False
+          hint_text: "Password"
+          pos_hint: {"x":0,1, "y": 0,5"}
+
 
         Button:
             pos_hint: {"x": 0.1, "y": 0.5}
             text: "Next"
             on_release:
-                app.root.current = "insert_into_dict"
+            app.root.current = "insert_into_dict"
+
+        Button:
+            text: "Login"
+            pos_hint: {"x: 0,1, y: 0,3"}
+            on_press: root.login()
+
+
+        Button:
+            text: "Go back"
+            on_release:
+            app.root.current = "welc"
+
 
 <InsertIntoDictionary>
     name: "insert_into_dict"
@@ -92,15 +113,10 @@ WindowManager:
     FloatLayout:
         size: root.width, root.height
 
-        TextInput:
-            id:new_word
-            multiline:False
-            pos_hint: {"x": 0.1, "y": 0.6}
-
         Button:
             text: "Back to start"
             on_release:
-                app.root.current = "welc"
+            app.root.current = "welc"
 
         Button:
             text: "Submit to dictionary"

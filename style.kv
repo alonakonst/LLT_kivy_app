@@ -13,6 +13,8 @@ WindowManager:
     WelcomeWindow:
     SecondWindow:
     InsertIntoDictionary:
+    DisplayDictionary:
+
 
 <WelcomeWindow>:
     name: "welc"
@@ -81,6 +83,7 @@ WindowManager:
 <InsertIntoDictionary>
     name: "insert_into_dict"
     new_word: new_word
+    word_label: word_label
 
     canvas.before:
         Color:
@@ -91,6 +94,13 @@ WindowManager:
 
     FloatLayout:
         size: root.width, root.height
+
+        Label:
+            id: word_label
+            text: "Insert words: "
+            pos_hint: {'x': 0, 'y': 0.8}
+            font_size: self.height
+            size_hint: (0.5, 0.17)
 
         TextInput:
             id:new_word
@@ -106,3 +116,31 @@ WindowManager:
             text: "Submit to dictionary"
             pos_hint: {"x": 0.2, "y": 0.2}
             on_press:root.submit_new_word()
+
+        Button:
+            text: "Show dictionary"
+            pos_hint: {"x": 0.2, "y": 0.5}
+            on_press:root.show_dictionary()
+            on_release:
+                app.root.current = "dictionary"
+
+<DisplayDictionary>
+    name: "dictionary"
+
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    FloatLayout:
+        size: root.width, root.height
+
+        Label:
+            id: word_label
+            text: "ko"
+            pos_hint: {'x': 0.5, 'y': 0.5}
+            font_size: self.height
+            size_hint: (0.1, 0.17)
+

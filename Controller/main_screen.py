@@ -1,4 +1,4 @@
-from View.main_screen import MainScreenView
+from View.main_screen import MainScreenView, InsertIntoDictionary
 
 class MainScreenController:
 

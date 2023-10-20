@@ -4,6 +4,7 @@ from kivy.lang import Builder
 from kivy.properties import ObjectProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
 
+from Model.main_screen import MainScreenModel
 
 class MainScreenView(ScreenManager):
     controller = ObjectProperty()
@@ -11,6 +12,11 @@ class MainScreenView(ScreenManager):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+
+        try:
+            MainScreenModel.connectDatabase()
+        except Exception as e:
+            print(e)
 
         welcome_window = WelcomeWindow()
         self.add_widget(welcome_window)
@@ -33,7 +39,15 @@ class SecondWindow(Screen):
 
 
 class InsertIntoDictionary(Screen):
-    pass
+    def insert(self):
+        word = self.ids.word.text
+        MainScreenModel.insert_words(word)
+
+    def show(self):
+        word = ''
+        for i in MainScreenModel.show_words():
+            word = f'{word}\n{i[0]}'
+            self.manager.get_screen("dictionary").ids.word_label.text = f'{word}'
 
 
 class DisplayDictionary(Screen):

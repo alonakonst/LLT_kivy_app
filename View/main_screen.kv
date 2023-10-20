@@ -101,7 +101,7 @@ MainScreenView:
             size_hint: (0.5, 0.17)
 
         TextInput:
-            id:new_word
+            id: word
             multiline:False
             pos_hint: {"x": 0.1, "y": 0.6}
 
@@ -113,12 +113,12 @@ MainScreenView:
         Button:
             text: "Submit to dictionary"
             pos_hint: {"x": 0.2, "y": 0.2}
-
+            on_press:root.insert()
 
         Button:
             text: "Show dictionary"
             pos_hint: {"x": 0.2, "y": 0.5}
-            on_press:root.show_dictionary()
+            on_press:root.show()
             on_release:
                 app.root.current = "dictionary"
 

@@ -18,7 +18,6 @@ class WelcomeWindow(Screen):
        self.user_name.text = ""
 
 
-
 class SecondWindow(Screen):
     pass
 

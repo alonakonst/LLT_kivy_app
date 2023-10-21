@@ -5,7 +5,7 @@ class MainScreenModel:
     db = None
     @staticmethod
     def connectDatabase():
-        MainScreenModel.db = connect('dictionary.db')
+        MainScreenModel.db = connect('Model/dictionary.db')
         cur = MainScreenModel.db.cursor()
         cur.execute("""CREATE TABLE if not exists words(
                 word text

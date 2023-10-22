@@ -1,3 +1,9 @@
+# python
+*.pyc
+
+# data
+*.db
+
 # build
 bin
 .buildozer

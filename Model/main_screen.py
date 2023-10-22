@@ -8,11 +8,6 @@ class MainScreenModel:
         self.cur = self.conn.cursor()
 
 
-        try:
-            MainScreenModel.__init__(self)
-        except Exception as e:
-            print(e)
-
     def __del__(self):
         self.conn.close()
 

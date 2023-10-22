@@ -1,33 +1,60 @@
 import sqlite3
+import os
 from sqlite3 import connect
 
 class MainScreenModel:
-    db = None
-    @staticmethod
-    def connectDatabase():
-        MainScreenModel.db = connect('Model/dictionary.db')
-        cur = MainScreenModel.db.cursor()
-        cur.execute("""CREATE TABLE if not exists words(
-                word text
-                translation text
-                notes text)
-            """)
-        MainScreenModel.db.commit()
-        print("connection to database")
+    def __init__(self):
+        self.conn = sqlite3.connect('Model/dictionary.db')
+        self.cur = self.conn.cursor()
+
+
+        try:
+            MainScreenModel.__init__(self)
+        except Exception as e:
+            print(e)
+
+    def __del__(self):
+        self.conn.close()
 
     @staticmethod
-    def insert_words(word):
-        cur = MainScreenModel.db.cursor()
-        cur.execute("INSERT INTO words VALUES(:val)",
-{
-                'val': f'{word}',
-            })
-        MainScreenModel.db.commit()
+    def create_table():
+        pass
 
     @staticmethod
-    def show_words():
-        cur = MainScreenModel.db.cursor()
-        cur.execute("SELECT * FROM words")
-        records = cur.fetchall()
+    def insert():
+        pass
+
+    @staticmethod
+    def show():
+        pass
+
+
+class Words(MainScreenModel):
+
+    def __init__(self):
+        super().__init__()
+
+    def create_table(self):
+        self.cur.execute("""CREATE TABLE if not exists words(
+                      word text
+                      translation text
+                      notes text)
+                  """)
+        self.conn.commit()
+
+    def insert(self, word):
+        self.cur.execute("INSERT INTO words VALUES(:val)",
+                    {
+                        'val': f'{word}',
+                    })
+
+        self.conn.commit()
+
+    # @staticmethod
+    def show(self):
+        self.cur.execute("SELECT * FROM words")
+        records = self.cur.fetchall()
+        self.conn.commit()
         return records
-        MainScreenModel.db.commit()
+
+

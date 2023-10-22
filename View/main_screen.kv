@@ -9,7 +9,7 @@
 <Label>
     color: 0.3, 0.6, 0.7, 1
 
-WindowManager:
+MainScreenView:
     WelcomeWindow:
     SecondWindow:
     InsertIntoDictionary:
@@ -18,7 +18,6 @@ WindowManager:
 
 <WelcomeWindow>:
     name: "welc"
-    user_name: user_name
 
     canvas.before:
         Color:
@@ -46,14 +45,13 @@ WindowManager:
             text:"Login"
             on_release:
                 app.root.current = "second"
-            on_press:root.btn()
 
         Button:
             pos_hint: {"x": 0.1, "y": 0.2}
             text:"Continue as a guest"
             on_release:
                 app.root.current = "second"
-            on_press:root.btn()
+
 
 
 <SecondWindow>:
@@ -82,7 +80,6 @@ WindowManager:
 
 <InsertIntoDictionary>
     name: "insert_into_dict"
-    new_word: new_word
     word_label: word_label
 
     canvas.before:
@@ -103,7 +100,7 @@ WindowManager:
             size_hint: (0.5, 0.17)
 
         TextInput:
-            id:new_word
+            id: word
             multiline:False
             pos_hint: {"x": 0.1, "y": 0.6}
 
@@ -115,12 +112,12 @@ WindowManager:
         Button:
             text: "Submit to dictionary"
             pos_hint: {"x": 0.2, "y": 0.2}
-            on_press:root.submit_new_word()
+            on_press:root.insert()
 
         Button:
             text: "Show dictionary"
             pos_hint: {"x": 0.2, "y": 0.5}
-            on_press:root.show_dictionary()
+            on_press:root.show()
             on_release:
                 app.root.current = "dictionary"
 
@@ -143,4 +140,3 @@ WindowManager:
             pos_hint: {'x': 0.5, 'y': 0.5}
             font_size: self.height
             size_hint: (0.1, 0.17)
-

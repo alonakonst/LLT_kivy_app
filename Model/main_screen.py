@@ -7,7 +7,6 @@ class MainScreenModel:
         self.conn = sqlite3.connect('Model/dictionary.db')
         self.cur = self.conn.cursor()
 
-
     def __del__(self):
         self.conn.close()
 
@@ -28,6 +27,7 @@ class Words(MainScreenModel):
 
     def __init__(self):
         super().__init__()
+        self.create_table()
 
     def create_table(self):
         self.cur.execute("""CREATE TABLE if not exists words(

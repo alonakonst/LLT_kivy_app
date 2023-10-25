@@ -15,4 +15,4 @@ TABLES = [
 
 def initialise_database():
     with database:
-        database.create_tables(TABLES)
+        database.create_tables(TABLES, safe=True)

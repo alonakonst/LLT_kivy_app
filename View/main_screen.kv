@@ -56,6 +56,7 @@ MainScreenView:
 
 <SecondWindow>:
     name: "second"
+
     canvas.before:
         Color:
             rgba: (1,1,1,1)
@@ -64,19 +65,28 @@ MainScreenView:
             size: self.size
 
     FloatLayout:
-
         size: root.width, root.height
 
-        Button:
-            text: "Go back"
-            on_release:
-                app.root.current = "welc"
+        Spinner:
+            id: language_spinner
+            values: {"English", "Danish"}
+            text: "Choose a language"
+            pos_hint: {"x": 0.1, "y": 0.4}
+
 
         Button:
             pos_hint: {"x": 0.1, "y": 0.5}
             text: "Next"
             on_release:
                 app.root.current = "insert_into_dict"
+
+
+
+
+        Button:
+            text: "Go back"
+            on_release:
+                app.root.current = "welc"
 
 <InsertIntoDictionary>
     name: "insert_into_dict"

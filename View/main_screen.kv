@@ -104,15 +104,27 @@ MainScreenView:
 
         Label:
             id: word_label
-            text: "Insert words: "
-            pos_hint: {'x': 0, 'y': 0.8}
-            font_size: self.height
-            size_hint: (0.5, 0.17)
+            text: "New Words: "
+            pos_hint: {'x': 0.4, 'Top': 0.6}
+            font_size: self.height * 0.05
+            size_hint: (0.2, 0.1)
+
+        Label:
+            text: "Translation"
+            post_hint: {'x': 0.4, 'Top': 0.8}
+            font_size: self.height * 0.3
+            size_hint: (0.2, 0.1)
+
+        Label:
+            text: "Add Words"
+            pos_hint: {'x': 0.4, 'Top': 0.9}
+            font_size: self.height * 0.05
+            size_hint: (0.2, 0.1)
 
         TextInput:
             id: word
             multiline:False
-            pos_hint: {"x": 0.1, "y": 0.6}
+            pos_hint: {"x": 0.1, "y": 0.5}
 
         Button:
             text: "Back to start"

@@ -28,6 +28,7 @@ class Words(MainScreenModel):
 
     def __init__(self):
         super().__init__()
+        self.create_table()
 
     def create_table(self):
         self.cur.execute("""CREATE TABLE if not exists words(

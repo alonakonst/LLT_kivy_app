@@ -14,4 +14,5 @@ class LLTApp(App):
         return self.controller.get_screen()
 
 
-LLTApp().run()
+if __name__ == '__main__':
+    LLTApp().run()

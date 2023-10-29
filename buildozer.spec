@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,peewee==3.17.0
+requirements = python3,kivy,google-cloud-translate==3.12.1,peewee==3.17.0
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes

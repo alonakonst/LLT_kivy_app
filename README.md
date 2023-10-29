@@ -25,3 +25,11 @@
    ```
 4. The first time your build you might have to install dependencies (you will be guided through this by the command)
 5. The app should automatically be opened when you unlock your Android device 
+
+
+### Unit Tests
+1. run the following command to perform unittests:
+   ```shell
+      python -m unittest
+   ```
+   

@@ -4,8 +4,7 @@ from sqlite3 import connect
 
 class MainScreenModel:
     def __init__(self):
-        self.conn = sqlite3.connect('Model/dictionary.db')
-        self.cur = self.conn.cursor()
+        pass
 
 
     def __del__(self):

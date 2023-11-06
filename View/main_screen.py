@@ -1,11 +1,11 @@
 import os
-
 from kivy.lang import Builder
 from kivy.properties import ObjectProperty
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import ScreenManager
 
-from Model import DictionaryEntry
-
+from View.Screens.add_to_dict import AddToDict
+from View.Screens.dictionary import Dictionary
+from View.Screens.practise import Practise
 
 class MainScreenView(ScreenManager):
     controller = ObjectProperty()
@@ -14,47 +14,15 @@ class MainScreenView(ScreenManager):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        welcome_window = WelcomeWindow()
-        self.add_widget(welcome_window)
+        add_to_dict = AddToDict()
+        self.add_widget(add_to_dict)
 
-        second_window = SecondWindow()
-        self.add_widget(second_window)
+        dictionary = Dictionary()
+        self.add_widget(dictionary)
 
-        insert_dict = InsertIntoDictionary()
-        self.add_widget(insert_dict)
+        practise = Practise()
+        self.add_widget(practise)
 
-        display = DisplayDictionary()
-        self.add_widget(display)
-
-class WelcomeWindow(Screen):
-        pass
-
-
-class SecondWindow(Screen):
-    pass
-
-
-class InsertIntoDictionary(Screen):
-
-    #Todo Move to controller
-    def insert(self):
-        text = self.ids.word.text
-        dictionary_entry = DictionaryEntry(text=text)
-        dictionary_entry.save()
-
-    #Todo Move to controller
-    def show(self):
-        word = ''
-        for i in DictionaryEntry().select():
-            word = f'{word}\n{i.text}'
-            self.manager.get_screen("dictionary").ids.word_label.text = f'{word}'
-            print(word)
-
-
-class DisplayDictionary(Screen):
-    pass
 
 
 Builder.load_file(os.path.join(os.path.dirname(__file__), "main_screen.kv"))
-
-print("also this")

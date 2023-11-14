@@ -1,7 +1,7 @@
 from Model import Quiz
 
 
-class PracticeController:
+class PractiseController:
 
     def generate_quiz(self):
         """dummy"""

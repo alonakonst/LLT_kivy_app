@@ -1,1 +1,1 @@
-from .practice_controller import PracticeController
+from .practise_controller import PractiseController

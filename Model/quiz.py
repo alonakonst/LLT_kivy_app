@@ -8,8 +8,8 @@ from dataclasses import dataclass
 @dataclass(frozen=True)
 class Quiz:
     question: str
-    answer: List[str]
+    answers: List[str]
 
     def __post_init__(self):
-        if len(self.answer) != 4:
+        if len(self.answers) != 4:
             raise ValueError(f"answer List must be of length 4, not {len(self.answer)}")

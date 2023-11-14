@@ -12,4 +12,4 @@ class Quiz:
 
     def __post_init__(self):
         if len(self.answers) != 4:
-            raise ValueError(f"answer List must be of length 4, not {len(self.answer)}")
+            raise ValueError(f"answer List must be of length 4, not {len(self.answers)}")

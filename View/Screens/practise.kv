@@ -12,8 +12,7 @@
         size: root.width, root.height
 
         Label:
-            id: 'question'
-            text: "Question?"
+            id: question
             pos_hint: {'x': 0.5, 'y': 0.8}
             font_size: self.height / 2
             size_hint: (0.1, 0.17)
@@ -24,21 +23,17 @@
             size_hint: (1.0, 0.4)
 
             Button:
-                id: "answer0"
-                text: "Answer 0"
+                id: answer0
                 on_press: root.answer(self)
 
             Button:
-                id: "answer1"
-                text: "Answer 1"
+                id: answer1
                 on_press: root.answer(self)
 
             Button:
-                id: "answer2"
-                text: "Answer 2"
+                id: answer2
                 on_press: root.answer(self)
 
             Button:
-                id: "answer3"
-                text: "Answer 3"
+                id: answer3
                 on_press: root.answer(self)

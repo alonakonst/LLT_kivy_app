@@ -2,8 +2,6 @@ from Model import Quiz
 
 
 class PractiseController:
-    ANSWER_BUTTON_CORRECT_COLOR = (0, 1, 0, 1)
-    ANSWER_BUTTON_INCORRECT_COLOR = (1, 0, 0, 1)
 
     def __init__(self, view):
         self.view = view

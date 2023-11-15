@@ -7,7 +7,7 @@ class PractiseController:
 
     def __init__(self, view):
         self.view = view
-        self.current_quiz = None
+        self.current_quiz: Quiz = None
         self.correct_answer_index = None
         self.quiz_in_progress = True
 
@@ -46,7 +46,7 @@ class PractiseController:
         :param answer_text:
         :return:
         """
-        return answer_text == self.current_quiz.answers[self.correct_answer_index]
+        return answer_text == self.current_quiz.answers[self.current_quiz.correct_answer_index]
 
     def on_correct_answer(self, answer_button):
         """

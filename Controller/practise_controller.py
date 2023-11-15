@@ -32,9 +32,9 @@ class PractiseController:
 
         answer_text = answer_button.text
         if self.is_answer_correct(answer_text):
-            self.answer_button_on_correct(answer_button)
+            self.on_correct_answer(answer_button)
         else:
-            self.answer_button_on_incorrect(answer_button)
+            self.on_incorrect_answer(answer_button)
 
         self.quiz_in_progress = False
 
@@ -49,7 +49,7 @@ class PractiseController:
         """
         return answer_text == self.current_quiz.answers[self.correct_answer_index]
 
-    def answer_button_on_correct(self, answer_button):
+    def on_correct_answer(self, answer_button):
         """
         Determines what happens when the correct answer button is pressed
         :param answer_button:
@@ -57,7 +57,7 @@ class PractiseController:
         """
         answer_button.background_color = self.ANSWER_BUTTON_CORRECT_COLOR
 
-    def answer_button_on_incorrect(self, answer_button):
+    def on_incorrect_answer(self, answer_button):
         """
         Determines what happens when the incorrect answer button is pressed
         :param answer_button:

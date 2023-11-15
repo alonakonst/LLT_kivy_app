@@ -41,12 +41,22 @@ class Practise(Screen):
 
         self.set_quiz(quiz)
 
+    def enabled_next_button(self):
+        self.ids.next_button.opacity = 1
+        self.ids.next_button.disabled = False
+
+    def disable_next_button(self):
+        self.ids.next_button.opacity = 0
+        self.ids.next_button.disabled = True
+
     def create_next_button(self):
-        self.next_button = Button(text='Next', size_hint=(0.4, 0.1), pos_hint={'x': 0.3, 'y': 0.6}, on_press=self.controller.on_next_button_press)
-        self.add_widget(self.next_button)
+        self.enabled_next_button()
+        #self.next_button = Button(text='Next', size_hint=(0.4, 0.1), pos_hint={'x': 0.3, 'y': 0.6}, on_press=self.controller.on_next_button_press)
+        #self.add_widget(self.next_button)
 
     def remove_next_button(self):
-        self.remove_widget(self.next_button)
+        self.disable_next_button()
+        #self.remove_widget(self.next_button)
 
 
 Builder.load_file(os.path.join(os.path.dirname(__file__), "practise.kv"))

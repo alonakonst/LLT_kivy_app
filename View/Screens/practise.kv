@@ -19,6 +19,15 @@
             text_size: self.width, None
             halign: 'center'
 
+        Button:
+            id: next_button
+            text: 'next'
+            opacity: 0
+            size_hint: (0.4, 0.1)
+            pos_hint: {'x': 0.3, 'y': 0.6}
+            on_press: root.controller.on_next_button_press()
+            disabled: True
+
         GridLayout:
             id: answer_button_layout
             cols: 2

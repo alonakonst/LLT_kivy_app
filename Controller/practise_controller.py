@@ -41,7 +41,6 @@ class PractiseController:
         self.view.create_next_button()
 
 
-
     def is_answer_correct(self, answer_text: str) -> bool:
         """
         Returns True if the answer is correct and False otherwise
@@ -66,7 +65,7 @@ class PractiseController:
         """
         answer_button.background_color = self.ANSWER_BUTTON_INCORRECT_COLOR
 
-    def on_next_button_press(self, _):
+    def on_next_button_press(self):
         print("PRESS")
         self.view.set_quiz(self.current_quiz)
         self.correct_answer_index = 2

@@ -39,8 +39,8 @@ class PractiseController:
         self.view.enable_next_button()
 
     def next_button_on_press(self):
-        print("PRESS")
         self.view.set_quiz(self.current_quiz)
+        
         self.view.disable_next_button()
 
         self.quiz_in_progress = True

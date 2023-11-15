@@ -1,10 +1,10 @@
+from Model import Quiz
+from Controller import PractiseController
+
 from kivy.uix.screenmanager import Screen
-import os
 from kivy.lang import Builder
 
-from Model import Quiz
-
-from Controller import PractiseController
+import os
 
 
 class Practise(Screen):

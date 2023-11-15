@@ -16,7 +16,7 @@ class PractiseController:
         Returns a new quiz object
         :return:
         """
-        self.current_quiz = Quiz("opgave", ['dinner', 'assignment', 'internship', 'youth card'])
+        self.current_quiz = Quiz("opgave", ['dinner', 'assignment', 'internship', 'youth card'], 1)
         self.correct_answer_index = 1
 
         return self.current_quiz
@@ -67,7 +67,6 @@ class PractiseController:
     def on_next_button_press(self):
         print("PRESS")
         self.view.set_quiz(self.current_quiz)
-        self.correct_answer_index = 2
         self.view.disable_next_button()
 
         self.quiz_in_progress = True

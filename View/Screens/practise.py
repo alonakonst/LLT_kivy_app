@@ -23,7 +23,6 @@ class Practise(Screen):
         """
         quiz = self.controller.generate_quiz()
         self.set_quiz(quiz)
-        print(self.ids.answer0.background_color)
 
     def set_quiz(self, quiz: Quiz):
         """

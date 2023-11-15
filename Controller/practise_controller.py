@@ -8,6 +8,7 @@ class PractiseController:
     def __init__(self):
         self.current_quiz = None
         self.correct_answer_index = None
+        self.quiz_in_progress = True
 
     def generate_quiz(self) -> Quiz:
         """
@@ -25,11 +26,18 @@ class PractiseController:
         :param answer_button:
         :return:
         """
+        if not self.quiz_in_progress:
+            return
+
         answer_text = answer_button.text
         if self.is_answer_correct(answer_text):
             self.answer_button_on_correct(answer_button)
         else:
             self.answer_button_on_incorrect(answer_button)
+
+        self.quiz_in_progress = False
+
+
 
     def is_answer_correct(self, answer_text: str) -> bool:
         """

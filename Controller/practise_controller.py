@@ -40,7 +40,6 @@ class PractiseController:
 
         self.view.enable_next_button()
 
-
     def is_answer_correct(self, answer_text: str) -> bool:
         """
         Returns True if the answer is correct and False otherwise

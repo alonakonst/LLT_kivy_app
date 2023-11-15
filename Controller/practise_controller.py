@@ -8,7 +8,7 @@ class PractiseController:
     def __init__(self, view):
         self.view = view
         self.current_quiz: Quiz = None
-        self.correct_answer_index = None
+        self.correct_answer_index: int = None
         self.quiz_in_progress = True
 
     def generate_quiz(self) -> Quiz:

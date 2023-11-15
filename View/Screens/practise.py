@@ -37,9 +37,6 @@ class Practise(Screen):
             answer_button.background_color = DEFAULT_BUTTON_COLOR
             answer_button.text = answer_text
 
-    def answer(self, answer_button):
-        self.controller.answer_button_on_press(answer_button)
-
     def enable_next_button(self):
         self.ids.next_button.opacity = 1
         self.ids.next_button.disabled = False

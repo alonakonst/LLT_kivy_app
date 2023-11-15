@@ -38,6 +38,8 @@ class PractiseController:
 
         self.quiz_in_progress = False
 
+        self.view.create_next_button()
+
 
 
     def is_answer_correct(self, answer_text: str) -> bool:
@@ -63,3 +65,11 @@ class PractiseController:
         :return:
         """
         answer_button.background_color = self.ANSWER_BUTTON_INCORRECT_COLOR
+
+    def on_next_button_press(self, _):
+        print("PRESS")
+        self.view.set_quiz(self.current_quiz)
+        self.correct_answer_index = 2
+        self.view.remove_next_button()
+
+        self.quiz_in_progress = True

@@ -1,3 +1,4 @@
+from kivy.uix.button import Button
 from kivy.uix.screenmanager import Screen
 import os
 from kivy.lang import Builder
@@ -9,6 +10,7 @@ from Controller import PractiseController
 
 class Practise(Screen):
     def __init__(self, **kwargs):
+        self.next_button = None
         self.controller = PractiseController(self)
         super().__init__(**kwargs)
 
@@ -21,6 +23,7 @@ class Practise(Screen):
         """
         quiz = self.controller.generate_quiz()
         self.set_quiz(quiz)
+        print(self.ids.answer0.background_color)
 
     def set_quiz(self, quiz: Quiz):
         self.ids.question.text = f"Which of the following is the best translation for: {quiz.question!r}"
@@ -35,6 +38,13 @@ class Practise(Screen):
         quiz = self.controller.generate_quiz()
 
         self.set_quiz(quiz)
-    
+
+    def create_next_button(self):
+        self.next_button = Button(text='Next', size_hint=(0.4, 0.1), pos_hint={'x': 0.3, 'y': 0.6}, on_press=self.controller.on_next_button_press)
+        self.add_widget(self.next_button)
+
+    def remove_next_button(self):
+        self.remove_widget(self.next_button)
+
 
 Builder.load_file(os.path.join(os.path.dirname(__file__), "practise.kv"))

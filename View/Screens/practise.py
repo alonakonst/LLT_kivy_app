@@ -26,6 +26,11 @@ class Practise(Screen):
         print(self.ids.answer0.background_color)
 
     def set_quiz(self, quiz: Quiz):
+        """
+        Set's the quiz on the screen
+        :param quiz: the quiz to be set
+        :return:
+        """
         self.ids.question.text = f"Which of the following is the best translation for: {quiz.question!r}"
 
         for answer_button, answer_text in zip(self.ids.answer_button_layout.children, quiz.answers):

@@ -71,3 +71,4 @@ class PractiseController:
         self.view.disable_next_button()
 
         self.quiz_in_progress = True
+        

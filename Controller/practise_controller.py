@@ -5,7 +5,8 @@ class PractiseController:
     ANSWER_BUTTON_CORRECT_COLOR = (0, 1, 0, 1)
     ANSWER_BUTTON_INCORRECT_COLOR = (1, 0, 0, 1)
 
-    def __init__(self):
+    def __init__(self, view):
+        self.view = view
         self.current_quiz = None
         self.correct_answer_index = None
         self.quiz_in_progress = True

@@ -9,7 +9,7 @@ from Controller import PractiseController
 
 class Practise(Screen):
     def __init__(self, **kwargs):
-        self.controller = PractiseController()
+        self.controller = PractiseController(self)
         super().__init__(**kwargs)
 
     def on_kv_post(self, base_widget):
@@ -35,6 +35,6 @@ class Practise(Screen):
         quiz = self.controller.generate_quiz()
 
         self.set_quiz(quiz)
-
+    
 
 Builder.load_file(os.path.join(os.path.dirname(__file__), "practise.kv"))

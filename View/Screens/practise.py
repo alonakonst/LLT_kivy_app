@@ -1,4 +1,3 @@
-from kivy.uix.button import Button
 from kivy.uix.screenmanager import Screen
 import os
 from kivy.lang import Builder

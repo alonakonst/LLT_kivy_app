@@ -30,9 +30,9 @@ class PractiseController:
 
         answer_text = answer_button.text
         if self.is_answer_correct(answer_text):
-            self.on_correct_answer(answer_button)
+            self.view.on_correct_answer(answer_button)
         else:
-            self.on_incorrect_answer(answer_button)
+            self.view.on_incorrect_answer(answer_button)
 
         self.quiz_in_progress = False
 
@@ -45,22 +45,6 @@ class PractiseController:
         :return:
         """
         return answer_text == self.current_quiz.answers[self.current_quiz.correct_answer_index]
-
-    def on_correct_answer(self, answer_button):
-        """
-        Determines what happens when the correct answer button is pressed
-        :param answer_button:
-        :return:
-        """
-        answer_button.background_color = self.ANSWER_BUTTON_CORRECT_COLOR
-
-    def on_incorrect_answer(self, answer_button):
-        """
-        Determines what happens when the incorrect answer button is pressed
-        :param answer_button:
-        :return:
-        """
-        answer_button.background_color = self.ANSWER_BUTTON_INCORRECT_COLOR
 
     def on_next_button_press(self):
         print("PRESS")

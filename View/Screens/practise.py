@@ -7,6 +7,8 @@ from Model import Quiz
 from Controller import PractiseController
 
 DEFAULT_BUTTON_COLOR = [1, 1, 1, 1]
+ANSWER_BUTTON_CORRECT_COLOR = (0, 1, 0, 1)
+ANSWER_BUTTON_INCORRECT_COLOR = (1, 0, 0, 1)
 
 
 class Practise(Screen):
@@ -44,6 +46,12 @@ class Practise(Screen):
     def disable_next_button(self):
         self.ids.next_button.opacity = 0
         self.ids.next_button.disabled = True
+
+    def on_correct_answer(self, answer_button):
+        answer_button.background_color = ANSWER_BUTTON_CORRECT_COLOR
+
+    def on_incorrect_answer(self, answer_button):
+        answer_button.background_color = ANSWER_BUTTON_INCORRECT_COLOR
 
 
 Builder.load_file(os.path.join(os.path.dirname(__file__), "practise.kv"))

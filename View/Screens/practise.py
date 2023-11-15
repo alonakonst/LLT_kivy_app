@@ -23,15 +23,15 @@ class Practise(Screen):
         self.set_quiz(quiz)
 
     def set_quiz(self, quiz: Quiz):
-        self.ids.question.text = quiz.question
+        self.ids.question.text = f"Which of the following is the best translation for: {quiz.question!r}"
 
         self.ids.answer0.text = quiz.answers[0]
         self.ids.answer1.text = quiz.answers[1]
         self.ids.answer2.text = quiz.answers[2]
         self.ids.answer3.text = quiz.answers[3]
 
-    def answer(self, instance):
-
+    def answer(self, answer_button):
+        self.controller.answer_button_on_press(answer_button)
         quiz = self.controller.generate_quiz()
 
         self.set_quiz(quiz)

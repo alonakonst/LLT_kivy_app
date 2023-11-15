@@ -14,7 +14,6 @@ class Practise(Screen):
     ANSWER_BUTTON_INCORRECT_COLOR = [1, 0, 0, 1]
 
     def __init__(self, **kwargs):
-        self.next_button = None
         self.controller = PractiseController(self)
         super().__init__(**kwargs)
 

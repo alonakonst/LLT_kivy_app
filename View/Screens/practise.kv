@@ -13,9 +13,11 @@
 
         Label:
             id: question
-            pos_hint: {'x': 0.5, 'y': 0.8}
-            font_size: self.height / 2
-            size_hint: (0.1, 0.17)
+            pos_hint: {'x': 0.0, 'y': 0.8}
+            font_size: '20sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
+            halign: 'center'
 
         GridLayout:
             cols: 2

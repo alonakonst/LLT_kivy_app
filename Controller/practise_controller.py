@@ -29,7 +29,7 @@ class PractiseController:
             return
 
         answer_text = answer_button.text
-        if self.is_answer_correct(answer_text):
+        if self.current_quiz.is_correct_answer(answer_text):
             self.view.on_correct_answer(answer_button)
         else:
             self.view.on_incorrect_answer(answer_button)
@@ -37,15 +37,7 @@ class PractiseController:
         self.quiz_in_progress = False
 
         self.view.enable_next_button()
-
-    def is_answer_correct(self, answer_text: str) -> bool:
-        """
-        Returns True if the answer is correct and False otherwise
-        :param answer_text:
-        :return:
-        """
-        return answer_text == self.current_quiz.answers[self.current_quiz.correct_answer_index]
-
+        
     def on_next_button_press(self):
         print("PRESS")
         self.view.set_quiz(self.current_quiz)

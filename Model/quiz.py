@@ -17,3 +17,6 @@ class Quiz:
 
         if self.correct_answer_index < 0 or self.correct_answer_index >= 4:
             raise ValueError(f"correct_answer_index must be between 0 and 3, not {self.correct_answer_index}")
+
+    def is_correct_answer(self, answer):
+        return self.answers[self.correct_answer_index] == answer

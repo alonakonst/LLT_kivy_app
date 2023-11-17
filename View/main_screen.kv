@@ -56,10 +56,9 @@ MainScreenView:
 
 <SecondWindow>:
     name: "second"
-
     canvas.before:
         Color:
-            rgba: (1,1,1,1)
+            rgba: (1, 1, 1, 1)
         Rectangle:
             pos: self.pos
             size: self.size
@@ -67,26 +66,27 @@ MainScreenView:
     FloatLayout:
         size: root.width, root.height
 
-        Spinner:
-            id: language_spinner
-            values: {"English", "Danish"}
-            text: "Choose a language"
-            pos_hint: {"x": 0.1, "y": 0.4}
+        Button:
+            text: "Danish"
+            on_release: root.select_language("Danish")
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
 
+        Button:
+            text: "English"
+            on_release: root.select_language("English")
+            pos_hint: {"center_x": 0.5, "center_y": 0.7}
+
+        Button:
+            text: "Go back"
+            on_release: app.root.current = "welc"
+
+    FloatLayout:
 
         Button:
             pos_hint: {"x": 0.1, "y": 0.5}
             text: "Next"
-            on_release:
-                app.root.current = "insert_into_dict"
+            on_release: app.root.current = "insert_into_dict"
 
-
-
-
-        Button:
-            text: "Go back"
-            on_release:
-                app.root.current = "welc"
 
 <InsertIntoDictionary>
     name: "insert_into_dict"
@@ -104,15 +104,27 @@ MainScreenView:
 
         Label:
             id: word_label
-            text: "Insert words: "
-            pos_hint: {'x': 0, 'y': 0.8}
-            font_size: self.height
-            size_hint: (0.5, 0.17)
+            text: "New Words: "
+            pos_hint: {'x': 0.4, 'Top': 0.6}
+            font_size: self.height * 0.05
+            size_hint: (0.2, 0.1)
+
+        Label:
+            text: "Translation"
+            post_hint: {'x': 0.4, 'Top': 0.8}
+            font_size: self.height * 0.3
+            size_hint: (0.2, 0.1)
+
+        Label:
+            text: "Add Words"
+            pos_hint: {'x': 0.4, 'Top': 0.9}
+            font_size: self.height * 0.05
+            size_hint: (0.2, 0.1)
 
         TextInput:
             id: word
             multiline:False
-            pos_hint: {"x": 0.1, "y": 0.6}
+            pos_hint: {"x": 0.1, "y": 0.5}
 
         Button:
             text: "Back to start"

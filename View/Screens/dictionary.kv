@@ -1,0 +1,19 @@
+<Dictionary>
+    name: "dictionary"
+
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    FloatLayout:
+        size: root.width, root.height
+
+        Label:
+            id: word_label
+            text: "ko"
+            pos_hint: {'x': 0.5, 'y': 0.5}
+            font_size: self.height
+            size_hint: (0.1, 0.17)

@@ -1,4 +1,5 @@
 Kivy==2.2.1
+kivymd==1.1.1
 buildozer==1.5.0
 Cython==0.29.33
 virtualenv==20.24.5

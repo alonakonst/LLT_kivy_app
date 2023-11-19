@@ -3,7 +3,8 @@ from kivy.lang import Builder
 from kivymd.uix.datatables import MDDataTable
 from kivy.metrics import dp
 from kivy.properties import ObjectProperty
-from kivymd.uix.list import OneLineListItem
+from kivymd.uix.list import ThreeLineListItem
+from Model import DictionaryEntry
 class Dictionary(Screen):
     table = ObjectProperty()
 
@@ -11,11 +12,14 @@ class Dictionary(Screen):
         super().__init__(**kwargs)
 
     def on_enter(self):
-        for _ in range(50):
+        word = ''
+        for i in DictionaryEntry().select():
+            word = i.text
             self.ids.container.add_widget(
-                OneLineListItem(
-                    text=f"This is element number {_}"
+                ThreeLineListItem(
+                    text=f"{word}",
+                    secondary_text = "Translation:",
+                    tertiary_text = "Notes:"
                 )
             )
-
 

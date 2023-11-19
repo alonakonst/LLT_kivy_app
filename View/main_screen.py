@@ -11,18 +11,16 @@ class MainScreenView(ScreenManager):
     controller = ObjectProperty()
     model = ObjectProperty()
 
+    Builder.load_file('View/Screens/add_to_dict.kv')
+    Builder.load_file('View/Screens/dictionary.kv')
+    Builder.load_file('View/Screens/practise.kv')
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        add_to_dict = AddToDict()
-        self.add_widget(add_to_dict)
-
-        dictionary = Dictionary()
-        self.add_widget(dictionary)
-
-        practise = Practise()
-        self.add_widget(practise)
+        self.add_widget(AddToDict(name='add_to_dict'))
+        self.add_widget(Dictionary(name='dictionary'))
+        self.add_widget(Practise(name='practise'))
 
 
 
-Builder.load_file(os.path.join(os.path.dirname(__file__), "main_screen.kv"))

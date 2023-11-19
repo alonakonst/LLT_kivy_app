@@ -1,5 +1,15 @@
+<Button>
+    font_size: 32
+    size_hint: (0.8,0.1)
+    color: 0.3, 0.6, 0.7, 1
+
+<TextInput>
+    size_hint: (0.8,0.1)
+
+<Label>
+    color: 0.3, 0.6, 0.7, 1
+
 <AddToDict>
-    name: "add_dict"
     word_label: word_label
 
     canvas.before:
@@ -25,11 +35,6 @@
             pos_hint: {"x": 0.1, "y": 0.6}
 
         Button:
-            text: "Back to start"
-            on_release:
-                app.root.current = "welc"
-
-        Button:
             text: "Submit to dictionary"
             pos_hint: {"x": 0.2, "y": 0.2}
             on_press:root.insert()
@@ -37,13 +42,11 @@
         Button:
             text: "Show dictionary"
             pos_hint: {"x": 0.2, "y": 0.5}
-            on_press:root.show()
             on_release:
                 app.root.current = "dictionary"
 
         Button:
             text: "Practise"
             pos_hint: {"x": 0.2, "y": 0.35}
-            on_press: root.show()
             on_release:
                 app.root.current = "practise"

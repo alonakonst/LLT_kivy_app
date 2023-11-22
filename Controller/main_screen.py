@@ -12,4 +12,5 @@ class MainScreenController:
         #Set initial screen
         self.view.current = 'add_to_dict'
 
+
         return self.view

@@ -12,14 +12,12 @@ class Dictionary(Screen):
         super().__init__(**kwargs)
 
     def on_enter(self):
-        word = ''
         for i in DictionaryEntry().select():
-            word = i.text
             self.ids.container.add_widget(
                 ThreeLineListItem(
-                    text=f"{word}",
-                    secondary_text = "Translation:",
-                    tertiary_text = "Notes:"
+                    text=f"{i.text}",
+                    secondary_text = f"In English: {i.translation}",
+                    tertiary_text = f"Notes: {i.notes}",
                 )
             )
 

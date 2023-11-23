@@ -1,6 +1,7 @@
 <AddToDict>
     name: "add_dict"
     word_label: word_label
+    font_size: 15
 
     canvas.before:
         Color:
@@ -12,38 +13,58 @@
     FloatLayout:
         size: root.width, root.height
 
-        Label:
-            id: word_label
-            text: "Insert words: "
-            pos_hint: {'x': 0, 'y': 0.8}
-            font_size: self.height
-            size_hint: (0.5, 0.17)
+        BoxLayout:
+            orientation: 'vertical'
+            pos_hint: {'center_x':0.5,'center_y':0.9}
+            size_hint: (0.5,0.5)
+            spacing: 20
 
-        TextInput:
-            id: word
-            multiline:False
-            pos_hint: {"x": 0.1, "y": 0.6}
+            Label:
+                id: word_label
+                text: "Enter Word: "
+                font_size: 30
 
-        Button:
-            text: "Back to start"
-            on_release:
-                app.root.current = "welc"
+            TextInput:
+                id: word
+                multiline:False
+                background_color:0,0,0,0
 
-        Button:
-            text: "Submit to dictionary"
-            pos_hint: {"x": 0.2, "y": 0.2}
-            on_press:root.insert()
+            Button:
+                text: "Back to start"
+                on_release:
+                    app.root.current = "welc"
 
-        Button:
-            text: "Show dictionary"
-            pos_hint: {"x": 0.2, "y": 0.5}
-            on_press:root.show()
-            on_release:
-                app.root.current = "dictionary"
+            Button:
+                text: "Translation"
+                on_press: root.translation() #add the logic to the translation
 
-        Button:
-            text: "Practise"
-            pos_hint: {"x": 0.2, "y": 0.35}
-            on_press: root.show()
-            on_release:
-                app.root.current = "practise"
+            Button:
+                text: "Add"
+                on_press: root.add_translation() #add the logic for adding another logic to the translation
+
+
+        #Add a Textinput or other notes
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: '48dp'
+                spacing: 20
+
+                Label:
+                    text: "Include in Quiz"
+                    font_size: 20
+
+                Switch:
+                    id: include_in_quiz_switch
+                    active: False
+
+            Button:
+                text: "Add to dictionary"
+                pos_hint: {"x":0.2, "y": 0.1}
+                on_press: root.add_to_dictionary()  #Add the logic to the adding to dictionary
+
+
+
+
+

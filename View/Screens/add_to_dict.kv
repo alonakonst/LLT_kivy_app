@@ -10,58 +10,86 @@
             pos: self.pos
             size: self.size
 
-    FloatLayout:
-        size: root.width, root.height
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: 20
 
         BoxLayout:
-            orientation: 'vertical'
-            pos_hint: {'center_x':0.5,'center_y':0.9}
-            size_hint: (0.5,0.5)
-            spacing: 20
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: '90dp'
+            spacing: 15
 
-            Label:
-                id: word_label
-                text: "Enter Word: "
-                font_size: 30
+            BoxLayout:
+                orientation:'vertical'
+                size_hint_x: None
+                width: '200dp'
 
-            TextInput:
-                id: word
-                multiline:False
-                background_color:0,0,0,0
+                Label:
+                    text: "Enter Word: "
+                    font_size: 30
 
-            Button:
-                text: "Back to start"
-                on_release:
-                    app.root.current = "welc"
+                TextInput:
+                    id: word_label
+                    multiline:False
+                    background_color:0,0,0,0
 
-            Button:
-                text: "Translation"
-                on_press: root.translation() #add the logic to the translation
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
 
-            Button:
-                text: "Add"
-                on_press: root.add_translation() #add the logic for adding another logic to the translation
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 10
+
+                Button:
+                    text: "Translation button"
+                    on_press: root.translation() #add the logic to the translation
+
+                Button:
+                    text: "+ Add"
+                    on_press: root.add_translation() #add the logic for adding another logic to the translation
 
 
         #Add a Textinput or other notes
 
-            BoxLayout:
-                orientation: 'horizontal'
-                size_hint_y: None
-                height: '48dp'
-                spacing: 20
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 15
 
-                Label:
-                    text: "Include in Quiz"
-                    font_size: 20
+            Label:
+                text: "Notes:"
+                font_size: 20
 
-                Switch:
-                    id: include_in_quiz_switch
-                    active: False
+            TextInput:
+                multiline: True
+                hint_text: "Add notes here"
+
+            TextInput:
+                multiline: True
+                hint_text: "Add notes here"
+
+            TextInput:
+                multiline: True
+                hint_text: "Add notes here"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 20
+
+            Label:
+                text: "Include in Quiz"
+                font_size: 20
+
+            Switch:
+                id: include_in_quiz_switch
+                active: False
 
             Button:
                 text: "Add to dictionary"
-                pos_hint: {"x":0.2, "y": 0.1}
+                height: '100dp'
                 on_press: root.add_to_dictionary()  #Add the logic to the adding to dictionary
 
 

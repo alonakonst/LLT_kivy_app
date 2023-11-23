@@ -17,7 +17,6 @@ class MainScreenView(ScreenManager):
     Builder.load_file('View/Screens/practise.kv')
 
 
-
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 

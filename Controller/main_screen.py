@@ -6,7 +6,6 @@ class MainScreenController:
     def __init__(self):
         self.view =  MainScreenView(controller=self)
 
-
     def get_screen(self):
 
         #Set initial screen

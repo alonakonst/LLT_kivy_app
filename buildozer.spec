@@ -22,7 +22,7 @@ source.include_exts = py,kv
 #source.exclude_exts = spec, db, md
 
 # (list) List of directory to exclude (let empty to not exclude anything)
-#source.exclude_dirs = tests, bin, venv
+source.exclude_dirs = tests, bin, venv
 
 # (list) List of exclusions using pattern matching
 # Do not prefix with './'

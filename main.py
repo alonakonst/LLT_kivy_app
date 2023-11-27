@@ -16,5 +16,5 @@ class LLTApp(MDApp):
 
 if __name__ == '__main__':
     from Utility import initialise_database
-    initialise_database()
+    initialise_database(dummy=True)
     LLTApp().run()

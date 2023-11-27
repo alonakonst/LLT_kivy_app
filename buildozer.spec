@@ -4,7 +4,7 @@
 title = LLT Kivy App
 
 # (str) Package name
-package.name = myapp
+package.name = com.alonakonst.LLT_kivy_app
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.test

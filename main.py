@@ -16,5 +16,6 @@ class LLTApp(MDApp):
 
 if __name__ == '__main__':
     from Utility import initialise_database
+    # If dummy=True will fill the database with content if it's empty
     initialise_database(dummy=True)
     LLTApp().run()

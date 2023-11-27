@@ -7,7 +7,7 @@ title = LLT Kivy App
 package.name = com.alonakonst.LLT_kivy_app
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.test
+package.domain = com.alonakonst
 
 # (str) Source code where the main.py live
 source.dir = .

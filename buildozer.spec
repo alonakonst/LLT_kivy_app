@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = My Application
+title = LLT Kivy App
 
 # (str) Package name
 package.name = myapp

@@ -37,7 +37,6 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-
 requirements = python3,kivy,kivymd,peewee==3.17.0,requests==2.31.0
 
 # (str) Custom source folders for requirements

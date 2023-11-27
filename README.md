@@ -33,3 +33,10 @@
       python -m unittest
    ```
    
+
+### Create Dummy Database
+1. run the following command to create a dummy database:
+   ```shell
+      python create_dummy_database.py 
+   ```
+   

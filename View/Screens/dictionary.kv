@@ -1,5 +1,4 @@
 <Dictionary>
-    name: "dictionary"
 
     canvas.before:
         Color:
@@ -8,12 +7,11 @@
             pos: self.pos
             size: self.size
 
-    FloatLayout:
-        size: root.width, root.height
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: 30
 
-        Label:
-            id: word_label
-            text: "ko"
-            pos_hint: {'x': 0.5, 'y': 0.5}
-            font_size: self.height
-            size_hint: (0.1, 0.17)
+        MDScrollView:
+            MDList:
+                id: container
+

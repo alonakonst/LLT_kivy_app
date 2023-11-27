@@ -1,5 +1,15 @@
+<Button>
+    font_size: 32
+    size_hint: (0.8,0.1)
+    color: 0.3, 0.6, 0.7, 1
+
+<TextInput>
+    size_hint: (0.8,0.1)
+
+<Label>
+    color: 0.3, 0.6, 0.7, 1
+
 <AddToDict>
-    name: "add_dict"
     word_label: word_label
     font_size: 15
 
@@ -9,7 +19,6 @@
         Rectangle:
             pos: self.pos
             size: self.size
-
 
     BoxLayout:
         orientation: 'vertical'
@@ -117,8 +126,3 @@
                 height: '100dp'
                 font_size: 20
                 on_press: root.add_to_dictionary()  #Add the logic to the adding to dictionary
-
-
-
-
-

@@ -1,5 +1,5 @@
 from View.main_screen import MainScreenView
-
+from kivy.lang import Builder
 class MainScreenController:
 
 
@@ -7,4 +7,9 @@ class MainScreenController:
         self.view =  MainScreenView(controller=self)
 
     def get_screen(self):
+
+        #Set initial screen
+        self.view.current = 'add_to_dict'
+
+
         return self.view

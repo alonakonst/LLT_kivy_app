@@ -1,5 +1,6 @@
-<Dictionary>
+#: import Dictionary View.Screens.dictionary.Dictionary
 
+<Dictionary>
     canvas.before:
         Color:
             rgba: (1,1,1,1)
@@ -14,4 +15,28 @@
         MDScrollView:
             MDList:
                 id: container
+                padding: 0
 
+
+<ListItem>
+    id: list_item
+    size_hint_y: None
+    height: content.height
+
+    MDCardSwipeLayerBox:
+
+        MDIconButton:
+            id: lower_layer
+            icon: "trash-can"
+            pos_hint: {"center_y": .5}
+            on_release: Dictionary.remove_item(list_item)
+
+
+    MDCardSwipeFrontBox:
+
+        ThreeLineListItem:
+            id: content
+            text: root.text
+            secondary_text: root.secondary_text
+            tertiary_text: root.tertiary_text
+            _no_ripple_effect: True

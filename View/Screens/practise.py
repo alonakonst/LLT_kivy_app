@@ -1,11 +1,6 @@
 from Model import Quiz
 from Controller import PractiseController
-
 from kivy.uix.screenmanager import Screen
-from kivy.lang import Builder
-
-import os
-
 
 class Practise(Screen):
 
@@ -53,4 +48,4 @@ class Practise(Screen):
     def on_incorrect_answer(self, answer_button):
         answer_button.background_color = self.ANSWER_BUTTON_INCORRECT_COLOR
 
-#Builder.load_file(os.path.join(os.path.dirname(__file__), "practise.kv"))
+

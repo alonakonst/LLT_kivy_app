@@ -11,14 +11,15 @@ class Dictionary(Screen):
         super().__init__(**kwargs)
 
     #TODO MOVE DictionaryEntry().select() to controller
+    #TODO: if there are no notes, then write: no notes
     def on_enter(self):
         for i in DictionaryEntry().select():
             self.ids.container.add_widget(
                 ListItem(
                     id=i.id,
                     text=f"{i.text}",
-                    secondary_text=f"In English: {i.translation}",
-                    tertiary_text=f"Notes: {i.notes}",
+                    secondary_text=f"in English: {i.translation}",
+                    tertiary_text=f"notes: {i.notes}",
                 )
             )
 
@@ -37,3 +38,4 @@ class ListItem(MDCardSwipe):
     text = StringProperty()
     secondary_text = StringProperty()
     tertiary_text = StringProperty()
+

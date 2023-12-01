@@ -1,6 +1,5 @@
 from kivy.uix.screenmanager import Screen
 from Model import DictionaryEntry
-import os
 from kivy.lang import Builder
 class AddToDict(Screen):
 

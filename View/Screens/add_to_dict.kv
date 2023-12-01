@@ -1,14 +1,13 @@
 <Button>
     font_size: 32
-    size_hint: (0.8,0.1)
+    size_hint: (0.5,0.1)
     color: 0.3, 0.6, 0.7, 1
 
 <TextInput>
-    size_hint: (0.8,0.1)
+    size_hint: (0.8,0.07)
 
 
 <AddToDict>
-    word_label: word_label
 
     canvas.before:
         Color:
@@ -20,18 +19,26 @@
     FloatLayout:
         size: root.width, root.height
 
-        Label:
-            id: word_label
-            text: "Insert words: "
-            color: 255, 99, 71, 0.5
-            pos_hint: {'x': 0, 'y': 0.8}
-            font_size: self.height
-            size_hint: (0.5, 0.17)
-
         TextInput:
             id: word
             multiline:False
-            pos_hint: {"x": 0.1, "y": 0.6}
+            hint_text: "Enter a new word or phrase..."
+            pos_hint: {"x": 0.1, "y": 0.8}
+
+        TextInput:
+            id: translation
+            multiline: False
+            hint_text: "Enter your translation..."
+            pos_hint: {"x": 0.1, "y": 0.5}
+
+        Label:
+            text: 'Suggested translation: '
+            text_color: "black"
+            pos_hint: {"x": 0.3, "y": 0.65}
+            font_size: '20sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
+            halign: 'center'
 
         Button:
             text: "Submit to dictionary"
@@ -40,12 +47,12 @@
 
         Button:
             text: "Show dictionary"
-            pos_hint: {"x": 0.2, "y": 0.5}
+            pos_hint: {"x": 0.0, "y": 0.0}
             on_release:
                 app.root.current = "dictionary"
 
         Button:
             text: "Practise"
-            pos_hint: {"x": 0.2, "y": 0.35}
+            pos_hint: {"x": 0.5, "y": 0.0}
             on_release:
                 app.root.current = "practise"

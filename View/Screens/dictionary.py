@@ -1,15 +1,8 @@
 from kivy.uix.screenmanager import Screen
-from kivy.properties import ObjectProperty, StringProperty
+from kivy.properties import StringProperty, NumericProperty
 from Model import DictionaryEntry
 from kivymd.uix.card import MDCardSwipe
 from Controller import DictionaryController
-
-class ListItem(MDCardSwipe):
-    text = StringProperty()
-    secondary_text = StringProperty()
-    tertiary_text = StringProperty()
-
-
 
 class Dictionary(Screen):
 
@@ -17,17 +10,30 @@ class Dictionary(Screen):
         self.controller = DictionaryController(self)
         super().__init__(**kwargs)
 
+    #TODO MOVE DictionaryEntry().select() to controller
     def on_enter(self):
         for i in DictionaryEntry().select():
             self.ids.container.add_widget(
                 ListItem(
+                    id=i.id,
                     text=f"{i.text}",
                     secondary_text=f"In English: {i.translation}",
                     tertiary_text=f"Notes: {i.notes}",
                 )
             )
 
-    def remove_item(self, entity):
+
+    def remove_item(self, dictionary_entry):
+
+        #removes list item from the screen
         list_item = self.ids.content.parent.parent
         list_item.parent.remove_widget(list_item)
-        print(entity.text)
+
+        #removes the record from the database
+        Dictionary().controller.remove_dictionary_entry(dictionary_entry)
+
+class ListItem(MDCardSwipe):
+    id = NumericProperty()
+    text = StringProperty()
+    secondary_text = StringProperty()
+    tertiary_text = StringProperty()

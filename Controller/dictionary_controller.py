@@ -3,7 +3,6 @@ from Model import DictionaryEntry
 class DictionaryController:
 
     def __init__(self,view):
-        pass
         self.view = view
 
      #doesn't do anything

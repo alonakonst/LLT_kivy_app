@@ -9,3 +9,8 @@ class AddToDict(Screen):
             dictionary_entry = DictionaryEntry(text=text)
             dictionary_entry.save()
 
+    def checkbox_click(self, instance, value):
+        if value == True:
+            pass
+        else:
+            pass

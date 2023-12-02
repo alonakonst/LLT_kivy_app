@@ -2,14 +2,17 @@
     font_size: 32
     size_hint: (0.5,0.1)
     color: 'black'
-    background_color: "lightgray"
+    background_color: "lightgrey"
 
 <TextInput>
     size_hint: (0.8,0.07)
-    hint_text_color: 'darkgray'
+    hint_text_color: 'darkgrey'
+
+
+<CheckBox>
+    color: "grey" #color of the square box
 
 <AddToDict>
-
     canvas.before:
         Color:
             rgba: (1,1,1,1)
@@ -22,7 +25,6 @@
 
         MDLabel:
             text: 'Enter a new word or phrase: '
-            text_color: "black"
             pos_hint: {"x": 0.1, "y": 0.80}
             font_size: '20sp'
             size_hint: (1.0, None)
@@ -36,7 +38,6 @@
 
         MDLabel:
             text: 'Translation: '
-            text_color: "black"
             pos_hint: {"x": 0.1, "y": 0.63}
             font_size: '20sp'
             size_hint: (1.0, None)
@@ -51,12 +52,10 @@
                 id: suggested_checkbox
                 size_hint_x: None
 
-                color: "gray"
-
             MDLabel:
                 id: suggested_translation
                 text: 'Suggested: '
-                text_color: "darkgray"
+                text_color: "darkgrey"
                 font_size: '15sp'
                 size_hint: (1.0, None)
                 text_size: self.width, None
@@ -64,7 +63,6 @@
             CheckBox:
                 id: users_checkbox
                 size_hint_x: None
-                color: "gray"
 
             TextInput:
                 id: users_translation
@@ -80,7 +78,7 @@
             theme_text_color: "Custom"
             text_color: "darkred"
             pos_hint: {"x": 0.0, "y": 0.4}
-            font_size: '10sp'
+            font_size: '13sp'
             size_hint: (1.0, None)
             text_size: self.width, None
             halign: 'center'

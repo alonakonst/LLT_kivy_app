@@ -19,31 +19,63 @@
     FloatLayout:
         size: root.width, root.height
 
+        MDLabel:
+            text: 'Enter a new word or phrase: '
+            text_color: "black"
+            pos_hint: {"x": 0.1, "y": 0.80}
+            font_size: '20sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
+
         TextInput:
             id: word
             multiline:False
-            hint_text: "Enter a new word or phrase..."
-            pos_hint: {"x": 0.1, "y": 0.8}
+            hint_text: "type here..."
+            pos_hint: {"x": 0.1, "y": 0.75}
+
+        MDLabel:
+            text: 'Translation: '
+            text_color: "black"
+            pos_hint: {"x": 0.1, "y": 0.63}
+            font_size: '20sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
+
+        MDLabel:
+            text: 'From Google '
+            text_color: "darkgray"
+            pos_hint: {"x": 0.2, "y": 0.57}
+            font_size: '15sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
 
         TextInput:
             id: translation
             multiline: False
-            hint_text: "Enter your translation..."
-            pos_hint: {"x": 0.1, "y": 0.5}
+            hint_text: "Enter your own translation..."
+            pos_hint: {"x": 0.2, "y": 0.52}
+            size_hint: (0.7,0.05)
 
-        Label:
-            text: 'Suggested translation: '
+        MDLabel:
+            text: 'Notes: '
             text_color: "black"
-            pos_hint: {"x": 0.3, "y": 0.65}
+            pos_hint: {"x": 0.1, "y": 0.4}
             font_size: '20sp'
             size_hint: (1.0, None)
             text_size: self.width, None
-            halign: 'center'
+
+        TextInput:
+            id: notes
+            multiline:False
+            hint_text: "type your notes here..."
+            pos_hint: {"x": 0.1, "y": 0.35}
 
         Button:
             text: "Submit to dictionary"
-            pos_hint: {"x": 0.2, "y": 0.2}
+            pos_hint: {"x": 0.1, "y": 0.15}
             on_press:root.insert()
+            size_hint: (0.8, 0.1)
+
 
         Button:
             text: "Show dictionary"

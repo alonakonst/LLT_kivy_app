@@ -64,7 +64,6 @@
             CheckBox:
                 id: users_checkbox
                 size_hint_x: None
-
                 color: "gray"
 
             TextInput:
@@ -74,13 +73,21 @@
                 multiline: False
                 hint_text: "Enter your own translation..."
 
-
-
+        MDLabel:
+            id: condition_message
+            text: ''
+            theme_text_color: "Custom"
+            text_color: "darkred"
+            pos_hint: {"x": 0.0, "y": 0.4}
+            font_size: '10sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
+            halign: 'center'
 
         MDLabel:
             text: 'Notes: '
             text_color: "black"
-            pos_hint: {"x": 0.1, "y": 0.4}
+            pos_hint: {"x": 0.1, "y": 0.35}
             font_size: '20sp'
             size_hint: (1.0, None)
             text_size: self.width, None
@@ -89,7 +96,7 @@
             id: notes
             multiline:False
             hint_text: "type your notes here..."
-            pos_hint: {"x": 0.1, "y": 0.35}
+            pos_hint: {"x": 0.1, "y": 0.3}
 
         Button:
             text: "Submit to dictionary"

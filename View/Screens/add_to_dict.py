@@ -10,11 +10,8 @@ class AddToDict(Screen):
 
     def insert(self):
 
-        #checks if word/phrase is typed
-        if self.ids.word.text == '' and self.fields_cleared == False:
-            self.ids.word.hint_text = 'You should enter a word or a phrase'
-            self.ids.word.hint_text_color = "darkred"
-        else:
+        # checks the conditions
+        if AddToDict.check_conditions(self):
             text = self.ids.word.text
 
             AddToDict.translation_selection(self)
@@ -47,8 +44,22 @@ class AddToDict(Screen):
         self.ids.suggested_translation.text = 'Suggested'
         self.ids.suggested_checkbox.active = False
         self.ids.users_checkbox.active = False
+        self.ids.condition_message.text = ""
 
         #clearing out notes field
         self.ids.notes.text = ''
 
         AddToDict().fields_cleared = True
+
+    #check condition to submit dictionary entry
+    def check_conditions(self):
+        if self.ids.word.text == '' and not self.fields_cleared:
+            self.ids.word.hint_text = 'You should enter a word or a phrase'
+            self.ids.word.hint_text_color = "darkred"
+            return False
+
+        elif not self.ids.suggested_checkbox.active and not self.ids.users_checkbox.active:
+            self.ids.condition_message.text = "Choose at least one translation"
+            return False
+        else:
+            return True

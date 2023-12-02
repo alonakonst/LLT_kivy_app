@@ -10,7 +10,6 @@ class AddToDict(Screen):
 
     def insert(self):
 
-        # checks the conditions
         if AddToDict.check_conditions(self):
             text = self.ids.word.text
 
@@ -59,7 +58,21 @@ class AddToDict(Screen):
             return False
 
         elif not self.ids.suggested_checkbox.active and not self.ids.users_checkbox.active:
-            self.ids.condition_message.text = "Choose at least one translation"
+            self.ids.condition_message.text = "Select suggested translation or type your own"
             return False
+
+        elif self.ids.users_checkbox.active and self.ids.users_translation.text=='':
+            if self.ids.suggested_checkbox.active:
+                self.ids.users_checkbox.active = False
+                return True
+
+            self.ids.users_checkbox.active = False
+            self.ids.condition_message.text = "Select suggested translation or type your own"
+            return False
+
         else:
             return True
+
+    # set checkbox of user's translation checked when user press on user's translation TextInput
+    def users_checkbox_active(self):
+        self.ids.users_checkbox.active=True

@@ -9,19 +9,23 @@ class AddToDict(Screen):
         super().__init__(**kwargs)
 
     def insert(self):
-
+        #checks the conditions for all the required fields to insert into dictionary
         if AddToDict.check_conditions(self):
+            #retrieves word/phrase
             text = self.ids.word.text
 
+            #retriewes and formats list of translations
             AddToDict.translation_selection(self)
             translation = ', '.join(self.selected_translations)
 
+            #retireves notes
             notes = self.ids.notes.text
 
+            #communicaties with the model through controller
             self.controller.add_entry(text, translation, notes)
             AddToDict.clear_fields(self)
 
-    # retrieves user's selection of the translation:
+    # retrieves user's selection of the translation from bots APIs suggestion and user's input:
     def translation_selection(self):
         if self.ids.suggested_checkbox.active:
             AddToDict.selected_translations.append(self.ids.suggested_translation.text)
@@ -50,29 +54,31 @@ class AddToDict(Screen):
 
         AddToDict().fields_cleared = True
 
-    #check condition to submit dictionary entry
+    #checks condition to submit dictionary entry
     def check_conditions(self):
+
+        #checks if word/phrase is inserted
         if self.ids.word.text == '' and not self.fields_cleared:
             self.ids.word.hint_text = 'You should enter a word or a phrase'
             self.ids.word.hint_text_color = "darkred"
             return False
 
+        #returns False if none of the translation is selected
         elif not self.ids.suggested_checkbox.active and not self.ids.users_checkbox.active:
             self.ids.condition_message.text = "Select suggested translation or type your own"
             return False
 
+        #handles the case when user's translation field is empty but the checkbox is selected
         elif self.ids.users_checkbox.active and self.ids.users_translation.text=='':
             if self.ids.suggested_checkbox.active:
                 self.ids.users_checkbox.active = False
                 return True
-
             self.ids.users_checkbox.active = False
             self.ids.condition_message.text = "Select suggested translation or type your own"
             return False
-
         else:
             return True
 
-    # set checkbox of user's translation checked when user press on user's translation TextInput
+    # set checkbox of user's translation checked when user presses on user's translation TextInput
     def users_checkbox_active(self):
         self.ids.users_checkbox.active=True

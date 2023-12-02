@@ -82,3 +82,9 @@ class AddToDict(Screen):
     # set checkbox of user's translation checked when user presses on user's translation TextInput
     def users_checkbox_active(self):
         self.ids.users_checkbox.active=True
+
+    def suggested_translation(self, text):
+
+        self.controller.translate(text)
+
+        self.ids.suggested_translation.text = f'the translation of {text}'

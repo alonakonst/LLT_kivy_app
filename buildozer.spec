@@ -51,9 +51,6 @@ requirements = python3, sqlite3, certifi==2023.11.17, charset-normalizer==3.3.2,
 # Valid options are: landscape, portrait, portrait-reverse or landscape-reverse
 orientation = portrait
 
-# (list) List of service to declare
-#services = NAME:ENTRYPOINT_TO_PY,NAME2:ENTRYPOINT2_TO_PY
-
 #
 # Android specific
 #
@@ -82,14 +79,12 @@ fullscreen = 0
 # (See https://python-for-android.readthedocs.io/en/latest/buildoptions/#build-options-1 for all the supported syntaxes and properties)
 #android.permissions = android.permission.INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18)
 
-# (list) features (adds uses-feature -tags to manifest)
-#android.features = android.hardware.usb.host
-
 # (int) Target Android API, should be as high as possible.
-#android.api = 31
+android.api = 34
 
 # (int) Minimum API your APK / AAB will support.
-#android.minapi = 21
+# Tested on: 33
+android.minapi = 21
 
 # (int) Android SDK version to use
 #android.sdk = 20

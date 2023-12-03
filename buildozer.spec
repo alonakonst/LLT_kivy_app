@@ -298,42 +298,8 @@ android.debug_artifact = apk
 # Python for android (p4a) specific
 #
 
-# (str) python-for-android URL to use for checkout
-#p4a.url =
-
-# (str) python-for-android fork to use in case if p4a.url is not specified, defaults to upstream (kivy)
-#p4a.fork = kivy
-
 # (str) python-for-android branch to use, defaults to master
-#p4a.branch = master
-
-# (str) python-for-android specific commit to use, defaults to HEAD, must be within p4a.branch
-#p4a.commit = HEAD
-
-# (str) python-for-android git clone directory (if empty, it will be automatically cloned from github)
-#p4a.source_dir =
-
-# (str) The directory in which python-for-android should look for your own build recipes (if any)
-#p4a.local_recipes =
-
-# (str) Filename to the hook for p4a
-#p4a.hook =
-
-# (str) Bootstrap to use for android builds
-# p4a.bootstrap = sdl2
-
-# (int) port number to specify an explicit --port= p4a argument (eg for bootstrap flask)
-#p4a.port =
-
-# Control passing the --use-setup-py vs --ignore-setup-py to p4a
-# "in the future" --use-setup-py is going to be the default behaviour in p4a, right now it is not
-# Setting this to false will pass --ignore-setup-py, true will pass --use-setup-py
-# NOTE: this is general setuptools integration, having pyproject.toml is enough, no need to generate
-# setup.py if you're using Poetry, but you need to add "toml" to source.include_exts.
-#p4a.setup_py = false
-
-# (str) extra command line arguments to pass when invoking pythonforandroid.toolchain
-#p4a.extra_args =
+p4a.branch = v2023.09.16
 
 [buildozer]
 

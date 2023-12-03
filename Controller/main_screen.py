@@ -9,7 +9,7 @@ class MainScreenController:
     def get_screen(self):
 
         #Set initial screen
-        self.view.current = 'add_to_dict'
+        self.view.current = 'dictionary'
 
 
         return self.view

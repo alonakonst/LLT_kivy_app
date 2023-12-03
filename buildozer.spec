@@ -82,7 +82,7 @@ fullscreen = 0
 # (int) Target Android API, should be as high as possible.
 android.api = 34
 
-# (int) Minimum API your APK / AAB will support.
+# (int) Minimum API your APK will support.
 # Tested on: 33
 android.minapi = 21
 

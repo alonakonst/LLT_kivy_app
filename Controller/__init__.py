@@ -1,1 +1,2 @@
 from .practise_controller import PractiseController
+from .dictionary_controller import DictionaryController

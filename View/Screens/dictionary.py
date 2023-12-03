@@ -1,23 +1,41 @@
 from kivy.uix.screenmanager import Screen
-from kivy.lang import Builder
-from kivymd.uix.datatables import MDDataTable
-from kivy.metrics import dp
-from kivy.properties import ObjectProperty
-from kivymd.uix.list import ThreeLineListItem
+from kivy.properties import StringProperty, NumericProperty
 from Model import DictionaryEntry
+from kivymd.uix.card import MDCardSwipe
+from Controller import DictionaryController
+
 class Dictionary(Screen):
-    table = ObjectProperty()
 
     def __init__(self, **kwargs):
+        self.controller = DictionaryController(self)
         super().__init__(**kwargs)
 
+    #TODO MOVE DictionaryEntry().select() to controller
+    #TODO: if there are no notes, then write: no notes
     def on_enter(self):
         for i in DictionaryEntry().select():
             self.ids.container.add_widget(
-                ThreeLineListItem(
+                ListItem(
+                    id=i.id,
                     text=f"{i.text}",
-                    secondary_text = f"In English: {i.translation}",
-                    tertiary_text = f"Notes: {i.notes}",
+                    secondary_text=f"in English: {i.translation}",
+                    tertiary_text=f"notes: {i.notes}",
                 )
             )
+
+
+    def remove_item(self, dictionary_entry):
+
+        #removes list item from the screen
+        list_item = self.ids.content.parent.parent
+        list_item.parent.remove_widget(list_item)
+
+        #removes the record from the database
+        Dictionary().controller.remove_dictionary_entry(dictionary_entry)
+
+class ListItem(MDCardSwipe):
+    id = NumericProperty()
+    text = StringProperty()
+    secondary_text = StringProperty()
+    tertiary_text = StringProperty()
 

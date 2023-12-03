@@ -111,39 +111,6 @@ fullscreen = 0
 # (str) ANT directory (if empty, it will be automatically downloaded.)
 #android.ant_path =
 
-# (bool) If True, then skip trying to update the Android sdk
-# This can be useful to avoid excess Internet downloads or save time
-# when an update is due and you just want to test/build your package
-# android.skip_update = False
-
-# (bool) If True, then automatically accept SDK license
-# agreements. This is intended for automation only. If set to False,
-# the default, you will be shown the license when first running
-# buildozer.
-# android.accept_sdk_license = False
-
-# (str) Android entry point, default is ok for Kivy-based app
-#android.entrypoint = org.kivy.android.PythonActivity
-
-# (str) Full name including package path of the Java class that implements Android Activity
-# use that parameter together with android.entrypoint to set custom Java class instead of PythonActivity
-#android.activity_class_name = org.kivy.android.PythonActivity
-
-# (str) Extra xml to write directly inside the <manifest> element of AndroidManifest.xml
-# use that parameter to provide a filename from where to load your custom XML code
-#android.extra_manifest_xml = ./src/android/extra_manifest.xml
-
-# (str) Extra xml to write directly inside the <manifest><application> tag of AndroidManifest.xml
-# use that parameter to provide a filename from where to load your custom XML arguments:
-#android.extra_manifest_application_arguments = ./src/android/extra_manifest_application_arguments.xml
-
-# (str) Full name including package path of the Java class that implements Python Service
-# use that parameter to set custom Java class which extends PythonService
-#android.service_class_name = org.kivy.android.PythonService
-
-# (str) Android app theme, default is ok for Kivy-based app
-# android.apptheme = "@android:style/Theme.NoTitleBar"
-
 # (list) Pattern to whitelist for the whole project
 #android.whitelist =
 
@@ -152,19 +119,6 @@ fullscreen = 0
 
 # (str) Path to a custom blacklist file
 #android.blacklist_src =
-
-# (list) List of Java .jar files to add to the libs so that pyjnius can access
-# their classes. Don't add jars that you do not need, since extra jars can slow
-# down the build process. Allows wildcards matching, for example:
-# OUYA-ODK/libs/*.jar
-#android.add_jars = foo.jar,bar.jar,path/to/more/*.jar
-
-# (list) List of Java files to add to the android project (can be java or a
-# directory containing the files)
-#android.add_src =
-
-# (list) Android AAR archives to add
-#android.add_aars =
 
 # (list) Put these files or directories in the apk assets directory.
 # Either form may be used, and assets need not be in 'source.include_exts'.
@@ -184,46 +138,10 @@ fullscreen = 0
 # android.add_resources = legal_resources
 #android.add_resources =
 
-# (list) Gradle dependencies to add
-#android.gradle_dependencies =
-
 # (bool) Enable AndroidX support. Enable when 'android.gradle_dependencies'
 # contains an 'androidx' package, or any package from Kotlin source.
 # android.enable_androidx requires android.api >= 28
 #android.enable_androidx = True
-
-# (list) add java compile options
-# this can for example be necessary when importing certain java libraries using the 'android.gradle_dependencies' option
-# see https://developer.android.com/studio/write/java8-support for further information
-# android.add_compile_options = "sourceCompatibility = 1.8", "targetCompatibility = 1.8"
-
-# (list) Gradle repositories to add {can be necessary for some android.gradle_dependencies}
-# please enclose in double quotes 
-# e.g. android.gradle_repositories = "maven { url 'https://kotlin.bintray.com/ktor' }"
-#android.add_gradle_repositories =
-
-# (list) packaging options to add 
-# see https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.PackagingOptions.html
-# can be necessary to solve conflicts in gradle_dependencies
-# please enclose in double quotes 
-# e.g. android.add_packaging_options = "exclude 'META-INF/common.kotlin_module'", "exclude 'META-INF/*.kotlin_module'"
-#android.add_packaging_options =
-
-# (list) Java classes to add as activities to the manifest.
-#android.add_activities = com.example.ExampleActivity
-
-# (str) OUYA Console category. Should be one of GAME or APP
-# If you leave this blank, OUYA support will not be enabled
-#android.ouya.category = GAME
-
-# (str) XML file to include as an intent filters in <activity> tag
-#android.manifest.intent_filters =
-
-# (list) Copy these files to src/main/res/xml/ (used for example with intent-filters)
-#android.res_xml = PATH_TO_FILE,
-
-# (str) launchMode to set for the main activity
-#android.manifest.launch_mode = standard
 
 # (str) screenOrientation to set for the main activity.
 # Valid values can be found at https://developer.android.com/guide/topics/manifest/activity-element

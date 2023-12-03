@@ -8,7 +8,7 @@
     ```
 3. Install Dependencies:
     ```bash
-      pip install -r requirements.txt
+      pip install -r dev-requirements.txt
    ```
 
 4. Follow the following [tutorial](https://wiki.gentoo.org/wiki/Android/adb#:~:text=Set%20up%20a%20device%20for%20development,-USB%20Communication&text=Enable%20the%20USB%20Debugging%20option,device%20under%20Settings%20%3E%20Developer%20options.&text=On%20the%20device%2C%20go%20to,Settings%20%3E%20Developer%20options%20available%20enable.) to enable Developer mode on your Android device

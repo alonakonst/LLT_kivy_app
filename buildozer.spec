@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3, certifi==2023.11.17, charset-normalizer==3.3.2, docutils==0.20.1, idna==3.6, Kivy==2.2.1,
+requirements = python3, sqlite3, certifi==2023.11.17, charset-normalizer==3.3.2, docutils==0.20.1, idna==3.6, Kivy==2.2.1,
                Kivy-Garden==0.1.5, kivymd==1.1.1, peewee==3.17.0, Pygments==2.17.2, requests==2.31.0, urllib3==2.1.0
 
 # (str) Custom source folders for requirements

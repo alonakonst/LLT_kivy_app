@@ -154,19 +154,8 @@ android.manifest.orientation = portrait
 #android.add_libs_x86 = libs/android-x86/*.so
 #android.add_libs_mips = libs/android-mips/*.so
 
-# (bool) Indicate whether the screen should stay on
-# Don't forget to add the WAKE_LOCK permission if you set this to True
-#android.wakelock = False
-
 # (list) Android application meta-data to set (key=value format)
 #android.meta_data =
-
-# (list) Android library project to add (will be added in the
-# project.properties automatically.)
-#android.library_references =
-
-# (list) Android shared libraries which will be added to AndroidManifest.xml using <uses-library> tag
-#android.uses_library =
 
 # (str) Android logcat filters to use
 #android.logcat_filters = *:S python:D
@@ -177,31 +166,12 @@ android.manifest.orientation = portrait
 # (str) Android additional adb arguments
 #android.adb_args = -H host.docker.internal
 
-# (bool) Copy library instead of making a libpymodules.so
-#android.copy_libs = 1
-
 # (list) The Android archs to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
 # In past, was `android.arch` as we weren't supporting builds for multiple archs at the same time.
 android.archs = arm64-v8a, armeabi-v7a
 
-# (int) overrides automatic versionCode computation (used in build.gradle)
-# this is not the same as app version and should only be edited if you know what you're doing
-# android.numeric_version = 1
-
 # (bool) enables Android auto backup feature (Android API >=23)
 android.allow_backup = True
-
-# (str) XML file for custom backup rules (see official auto backup documentation)
-# android.backup_rules =
-
-# (str) If you need to insert variables into your AndroidManifest.xml file,
-# you can do so with the manifestPlaceholders property.
-# This property takes a map of key-value pairs. (via a string)
-# Usage example : android.manifest_placeholders = [myCustomUrl:\"org.kivy.customurl\"]
-# android.manifest_placeholders = [:]
-
-# (bool) Skip byte compile for .py files
-# android.no-byte-compile-python = False
 
 # (str) The format used to package the app for release mode (aab or apk or aar).
 android.release_artifact = apk

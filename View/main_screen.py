@@ -16,6 +16,10 @@ class MainScreenView(ScreenManager):
     Builder.load_file('View/Screens/dictionary.kv')
     Builder.load_file('View/Screens/practise.kv')
 
+    # Loading kv file of the NavigationBar
+    Builder.load_file('Components/navbar.kv')
+
+
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -25,5 +29,8 @@ class MainScreenView(ScreenManager):
         self.add_widget(Dictionary(name='dictionary'))
         self.add_widget(Practise(name='practise'))
 
+    # changing the current active screen
+    def switch_to_screen(self, screen_name):
+        self.current = screen_name
 
 

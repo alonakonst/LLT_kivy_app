@@ -7,6 +7,3 @@
 # build
 bin
 .buildozer
-
-# secret
-credentials.json

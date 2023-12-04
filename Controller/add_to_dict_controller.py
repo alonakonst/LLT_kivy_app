@@ -9,6 +9,6 @@ class AddToDictController:
         dictionary_entry.save()
 
     def translate(self, text):
-       # trasnlation = TranslationService().translate(text)
-       # print(trasnlation)
+        #translation = TranslationService().translate(text)
+        #print(translation)
         pass

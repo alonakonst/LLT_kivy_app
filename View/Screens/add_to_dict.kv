@@ -1,15 +1,17 @@
 <Button>
     font_size: 32
-    size_hint: (0.8,0.1)
-    color: 0.3, 0.6, 0.7, 1
+    size_hint: (0.5,0.1)
+    color: 'black'
+    background_color: "lightgrey"
 
 <TextInput>
-    size_hint: (0.8,0.1)
+    size_hint: (0.8,0.07)
+    hint_text_color: 'darkgrey'
 
+<CheckBox>
+    color: "grey" #color of the square box
 
 <AddToDict>
-    word_label: word_label
-    font_size: 15
 
     canvas.before:
         Color:
@@ -18,110 +20,99 @@
             pos: self.pos
             size: self.size
 
-    BoxLayout:
-        orientation: 'vertical'
-        spacing: 20
-        padding: 20
+    FloatLayout:
+        size: root.width, root.height
 
-        BoxLayout:
-            orientation: 'horizontal'
-            size_hint_y: None
-            height: '90dp'
-            spacing: 15
+        MDLabel:
+            text: 'Enter a new word or phrase: '
+            pos_hint: {"x": 0.1, "y": 0.80}
+            font_size: '20sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
 
-            BoxLayout:
-                orientation:'vertical'
+        TextInput:
+            id: word
+            multiline:False
+            hint_text: "type here..."
+            pos_hint: {"x": 0.1, "y": 0.75}
+
+        MDLabel:
+            text: 'Translation: '
+            pos_hint: {"x": 0.1, "y": 0.63}
+            font_size: '20sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
+
+        GridLayout:
+            cols:2
+            pos_hint: {'x': 0.05, 'y': 0.55}
+            size_hint: (0.85, 0.13)
+
+            CheckBox:
+                id: suggested_checkbox
                 size_hint_x: None
-                width: '200dp'
 
-                Label:
-                    text: "Enter Word: "
-                    font_size: 30
-                    size_hint_x: None
-                    width: '100dp'
+            MDLabel:
+                id: suggested_translation
+                text: 'suggestion'
+                text_color: "darkgrey"
+                font_size: '15sp'
+                size_hint: (1.0, None)
+                text_size: self.width, None
 
-                TextInput:
-                    id: word_label
-                    multiline:False
-                    background_color:0,0,0,0
-                    pos_hint:{'left_y': 0.5, 'left_x': 1}
-
-        BoxLayout:
-            orientation: 'horizontal'
-            spacing: 10
-
-            BoxLayout:
-                orientation: 'horizontal'
-                spacing: 10
-
-                Label:
-                    text: "Translation"
-
-                Button:
-                    text: "0"
-                    on_press: root.translation_button_action() #add the logic to the translation
-                    size_hint: None, None
-                    size: '50dp', '50dp'
-                    background_color: 0,0,0,0
-
-            BoxLayout:
-                orientation: 'horizontal'
-                spacing: 10
-
-                Button:
-                    text: "+"
-                    on_press: root.translation_button_action() #add the logic for adding another logic to the translation
-                    size_hint: None, None
-                    size: '50dp', '50dp'
-                    background_color: 0,0,0,0
-                    width: '20dp'
-
-                Label:
-                    text: "Enter other translation"
-                    size_hint_x: None
-                    width: '100dp'
-
-
-        #Add a Textinput or other notes
-
-        BoxLayout:
-            orientation: 'vertical'
-            spacing: 10
-
-            Label:
-                text: "Notes:"
-                font_size: 30
+            CheckBox:
+                id: users_checkbox
                 size_hint_x: None
-                width: '200dp'
-                spacing: 5
 
             TextInput:
-                multiline: True
-                hint_text: ""
+                id: users_translation
+                size_hint: (1, None)
+                height: 50
+                multiline: False
+                hint_text: "Enter your own translation..."
+                on_focus: root.users_checkbox_active()
 
-            TextInput:
-                multiline: True
-                hint_text: ""
+        MDLabel:
+            id: condition_message
+            text: ''
+            theme_text_color: "Custom"
+            text_color: "darkred"
+            pos_hint: {"x": 0.0, "y": 0.4}
+            font_size: '13sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
+            halign: 'center'
 
-            TextInput:
-                multiline: True
-                hint_text: ""
+        MDLabel:
+            text: 'Notes: '
+            text_color: "black"
+            pos_hint: {"x": 0.1, "y": 0.35}
+            font_size: '20sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
 
-        BoxLayout:
-            orientation: 'horizontal'
-            spacing: 20
+        TextInput:
+            id: notes
+            multiline:False
+            hint_text: "type your notes here..."
+            pos_hint: {"x": 0.1, "y": 0.3}
+            on_focus: root.suggested_translation(word.text)
 
-            Label:
-                text: "Include in Quiz"
-                font_size: 30
+        Button:
+            text: "Submit to dictionary"
+            pos_hint: {"x": 0.1, "y": 0.15}
+            on_press:root.insert()
+            size_hint: (0.8, 0.1)
 
-            Switch:
-                id: include_in_quiz_switch
-                active: False
 
-            Button:
-                text: "Add to dictionary"
-                height: '100dp'
-                font_size: 20
-                on_press: root.add_to_dictionary()  #Add the logic to the adding to dictionary
+        Button:
+            text: "Show dictionary"
+            pos_hint: {"x": 0.0, "y": 0.0}
+            on_release:
+                app.root.current = "dictionary"
 
+        Button:
+            text: "Practise"
+            pos_hint: {"x": 0.5, "y": 0.0}
+            on_release:
+                app.root.current = "practise"

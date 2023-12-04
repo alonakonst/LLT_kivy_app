@@ -33,6 +33,11 @@ class Dictionary(Screen):
         #removes the record from the database
         Dictionary().controller.remove_dictionary_entry(dictionary_entry)
 
+    def show_search_results(self):
+        print('it works')
+
+
+
 class ListItem(MDCardSwipe):
     id = NumericProperty()
     text = StringProperty()

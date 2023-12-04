@@ -12,7 +12,18 @@
         orientation: 'vertical'
         padding: 30
 
+        TextInput:
+            id: search
+            size_hint: (1, None)
+            height: 50
+            multiline: False
+            hint_text: "Search"
+            on_focus: root.show_search_results()
+
         MDScrollView:
+
+
+
             MDList:
                 id: container
                 padding: 0

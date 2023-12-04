@@ -1,2 +1,3 @@
 from .practise_controller import PractiseController
 from .dictionary_controller import DictionaryController
+from .add_to_dict_controller import AddToDictController

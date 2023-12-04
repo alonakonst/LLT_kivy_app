@@ -26,6 +26,9 @@
 4. The first time your build you might have to install dependencies (you will be guided through this by the command)
 5. The app should automatically be opened when you unlock your Android device 
 
+### Common Build Errors
+1. Some errors can be fixed by deleting the `bin` and `.buildozer` directories, keep in mind that the next time you
+build it might take upwards of 10 minutes longer.
 
 ### Unit Tests
 1. run the following command to perform unittests:

@@ -89,24 +89,6 @@ android.minapi = 21
 # (bool) Use --private data storage (True) or --dir public storage (False)
 android.private_storage = True
 
-# (str) Android NDK directory (if empty, it will be automatically downloaded.)
-#android.ndk_path =
-
-# (str) Android SDK directory (if empty, it will be automatically downloaded.)
-#android.sdk_path =
-
-# (str) ANT directory (if empty, it will be automatically downloaded.)
-#android.ant_path =
-
-# (list) Pattern to whitelist for the whole project
-#android.whitelist =
-
-# (str) Path to a custom whitelist file
-#android.whitelist_src =
-
-# (str) Path to a custom blacklist file
-#android.blacklist_src =
-
 # (list) Put these files or directories in the apk assets directory.
 # Either form may be used, and assets need not be in 'source.include_exts'.
 # 1) android.add_assets = source_asset_relative_path

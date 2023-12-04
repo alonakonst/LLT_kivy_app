@@ -1,7 +1,8 @@
 from kivymd.app import MDApp
-from kivy.core.window import Window
+
 from Controller.main_screen import MainScreenController
-from kivy.lang import Builder
+
+#from kivy.core.window import Window
 #Window.size = (310, 580)
 
 class LLTApp(MDApp):

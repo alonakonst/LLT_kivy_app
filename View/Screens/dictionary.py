@@ -1,7 +1,11 @@
 from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
 from kivy.properties import StringProperty, NumericProperty
+from kivy.uix.scrollview import ScrollView
+from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.button import MDFlatButton
 from kivymd.uix.dialog import MDDialog
+from kivymd.uix.label import MDLabel
 
 from Model import DictionaryEntry
 from kivymd.uix.card import MDCardSwipe
@@ -40,11 +44,34 @@ class Dictionary(Screen):
         print('it works')
 
     def show_popup(self, instance):
-        popup_content = f"Extra content for {instance.text}"
-        popup = MDDialog(
-                title=instance.text,
-                text=instance.secondary_text)
-        popup.open()
+
+        layout = MDBoxLayout(orientation='vertical', adaptive_height=True, padding='0dp')  # set orientation and use adaptive_height
+
+
+        label = MDLabel(text=instance.text, halign="left", valign="top", adaptive_height=True)
+        label_one = MDLabel(text=instance.secondary_text, halign="left", valign="bottom", adaptive_height=True)
+        label_two = MDLabel(text=instance.tertiary_text, halign="left", valign="bottom", adaptive_height=True)
+        layout.add_widget(label)
+        layout.add_widget(label_one)
+        layout.add_widget(label_two)
+
+        dialog = MDDialog(
+
+
+            type="custom",
+            content_cls=ScrollView(),  # set content of dialog to a ScrollView
+            buttons=[
+                MDFlatButton(
+                    text="edit",
+                    on_release=lambda *args: dialog.dismiss()
+                )
+            ],
+        )
+
+
+        dialog.content_cls.add_widget(layout)  # add the BoxLayout to the ScrollView
+        dialog.update_height()  # update the dialog
+        dialog.open()
 
 
 class ListItem(MDCardSwipe):

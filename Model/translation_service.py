@@ -46,6 +46,10 @@ class TranslationService:
         :raise ValueError: If the text is not a str, empty, or too long
         :raise TranslationServiceError: If there is a Google API error or any other error when making the request
         """
+        # if there is no api_key, fail gracefully
+        if not self.api_key:
+            raise TranslationServiceError(f"api_key is invalid (api_key is empty string).")
+
         # check if the text is valid
         if not text or not isinstance(text, str):
             raise ValueError("Invalid text provided for translation.")

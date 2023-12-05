@@ -1,19 +1,41 @@
-from Model import Quiz
+import random
 
+from kivy.properties import ObjectProperty
+from peewee import fn
+
+from Model import Quiz
+from Model import DictionaryEntry
 
 class PractiseController:
+
+    question_word = str
+    answer_word = str
 
     def __init__(self, view):
         self.view = view
         self.current_quiz: Quiz = None
         self.quiz_in_progress = True
+        self.quiz_set = {}
+        self.question_word = str
+        self.answer_word = str
 
     def generate_quiz(self) -> Quiz:
         """
         Returns a new quiz object
         :return:
         """
-        self.current_quiz = Quiz("opgave", ['dinner', 'assignment', 'internship', 'youth card'], 1)
+
+        PractiseController.generate_quiz_set(self)
+
+
+        print(PractiseController.quiz_set)
+        print(PractiseController.question_word)
+        print(PractiseController.answer_word)
+        print(f'length of list = {len(list(PractiseController.quiz_set.values()))}')
+        thelist = list(PractiseController.quiz_set.values())
+
+
+        self.current_quiz = Quiz(PractiseController.question_word, thelist, 1)
 
         return self.current_quiz
 
@@ -25,6 +47,7 @@ class PractiseController:
         """
         if not self.quiz_in_progress:
             return
+
 
         answer_text = answer_button.text
         if self.current_quiz.is_correct_answer(answer_text):
@@ -42,3 +65,18 @@ class PractiseController:
         self.view.disable_next_button()
 
         self.quiz_in_progress = True
+
+    def generate_quiz_set(self):
+        quiz_set = {}
+        for question in DictionaryEntry.select().order_by(fn.Random()).limit(4):
+            quiz_set[question.text] = question.translation
+        index = random.randint(0, 3)
+        question_word = list(quiz_set)[index]
+        answer_word = list(quiz_set.values())[index]
+
+        PractiseController.quiz_set = quiz_set
+        PractiseController.question_word = question_word
+        PractiseController.answer_word = answer_word
+
+
+

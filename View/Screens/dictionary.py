@@ -41,8 +41,9 @@ class Dictionary(Screen):
 
     def show_popup(self, instance):
         popup_content = f"Extra content for {instance.text}"
-        popup = MDDialog(title=f' The word is {instance.text}'
-                               f'  {instance.secondary_text}')
+        popup = MDDialog(
+                title=instance.text,
+                text=instance.secondary_text)
         popup.open()
 
 

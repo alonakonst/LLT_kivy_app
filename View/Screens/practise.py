@@ -12,6 +12,7 @@ class Practise(Screen):
         self.controller = PractiseController(self)
         super().__init__(**kwargs)
 
+
     def on_kv_post(self, base_widget):
         """
         This method is called after the kv file is loaded, this needs to be the case otherwise set_quiz cannot modify
@@ -45,7 +46,11 @@ class Practise(Screen):
     def on_correct_answer(self, answer_button):
         answer_button.background_color = self.ANSWER_BUTTON_CORRECT_COLOR
 
-    def on_incorrect_answer(self, answer_button):
+    def on_incorrect_answer(self, answer_button, correct_answer):
         answer_button.background_color = self.ANSWER_BUTTON_INCORRECT_COLOR
+        self.ids.correct_answer.text = f'The correct answer is: {correct_answer} '
 
-
+    def next_quiz(self):
+        quiz = self.controller.generate_quiz()
+        self.ids.correct_answer.text = ''
+        self.set_quiz(quiz)

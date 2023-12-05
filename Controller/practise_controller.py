@@ -8,16 +8,11 @@ from Model import DictionaryEntry
 
 class PractiseController:
 
-    question_word = str
-    answer_word = str
-
     def __init__(self, view):
         self.view = view
         self.current_quiz: Quiz = None
         self.quiz_in_progress = True
-        self.quiz_set = {}
-        self.question_word = str
-        self.answer_word = str
+        #self.answer = str
 
     def generate_quiz(self) -> Quiz:
         """
@@ -33,6 +28,8 @@ class PractiseController:
         #selects one question word from quiz_set
         index = random.randint(0, 3)
         question = list(quiz_set)[index]
+        #PractiseController.answer = list(quiz_set.values())[index]
+        #print(PractiseController.answer)
 
         self.current_quiz = Quiz(question,  list(quiz_set.values()), index)
 
@@ -52,7 +49,8 @@ class PractiseController:
         if self.current_quiz.is_correct_answer(answer_text):
             self.view.on_correct_answer(answer_button)
         else:
-            self.view.on_incorrect_answer(answer_button)
+            answer = self.current_quiz.correct_answer()
+            self.view.on_incorrect_answer(answer_button, answer)
 
         self.quiz_in_progress = False
 
@@ -64,6 +62,7 @@ class PractiseController:
         self.view.disable_next_button()
 
         self.quiz_in_progress = True
+
 
 
 

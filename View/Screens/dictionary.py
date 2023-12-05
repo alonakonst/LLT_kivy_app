@@ -1,5 +1,8 @@
+from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
 from kivy.properties import StringProperty, NumericProperty
+from kivymd.uix.dialog import MDDialog
+
 from Model import DictionaryEntry
 from kivymd.uix.card import MDCardSwipe
 from Controller import DictionaryController
@@ -36,6 +39,11 @@ class Dictionary(Screen):
     def show_search_results(self):
         print('it works')
 
+    def show_popup(self, instance):
+        popup_content = f"Extra content for {instance.text}"
+        popup = MDDialog(title=f' The word is {instance.text}'
+                               f'  {instance.secondary_text}')
+        popup.open()
 
 
 class ListItem(MDCardSwipe):

@@ -25,17 +25,16 @@ class PractiseController:
         :return:
         """
 
-        PractiseController.generate_quiz_set(self)
+        #creates a dictionary of four random words from the database and their translations
+        quiz_set = {}
+        for question in DictionaryEntry.select().order_by(fn.Random()).limit(4):
+            quiz_set[question.text] = question.translation
 
+        #selects one question word from quiz_set
+        index = random.randint(0, 3)
+        question = list(quiz_set)[index]
 
-        print(PractiseController.quiz_set)
-        print(PractiseController.question_word)
-        print(PractiseController.answer_word)
-        print(f'length of list = {len(list(PractiseController.quiz_set.values()))}')
-        thelist = list(PractiseController.quiz_set.values())
-
-
-        self.current_quiz = Quiz(PractiseController.question_word, thelist, 1)
+        self.current_quiz = Quiz(question,  list(quiz_set.values()), index)
 
         return self.current_quiz
 
@@ -66,17 +65,6 @@ class PractiseController:
 
         self.quiz_in_progress = True
 
-    def generate_quiz_set(self):
-        quiz_set = {}
-        for question in DictionaryEntry.select().order_by(fn.Random()).limit(4):
-            quiz_set[question.text] = question.translation
-        index = random.randint(0, 3)
-        question_word = list(quiz_set)[index]
-        answer_word = list(quiz_set.values())[index]
-
-        PractiseController.quiz_set = quiz_set
-        PractiseController.question_word = question_word
-        PractiseController.answer_word = answer_word
 
 
 

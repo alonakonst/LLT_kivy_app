@@ -1,6 +1,4 @@
 import random
-
-from kivy.properties import ObjectProperty
 from peewee import fn
 
 from Model import Quiz
@@ -28,8 +26,6 @@ class PractiseController:
         #selects one question word from quiz_set
         index = random.randint(0, 3)
         question = list(quiz_set)[index]
-        #PractiseController.answer = list(quiz_set.values())[index]
-        #print(PractiseController.answer)
 
         self.current_quiz = Quiz(question,  list(quiz_set.values()), index)
 

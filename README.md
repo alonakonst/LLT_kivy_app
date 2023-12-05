@@ -1,5 +1,12 @@
 # LLT kivy App
 
+### Development Environment Configuration
+1. You must create a local file named `config.env` which includes a Google Cloud API key, like this:
+   ```shell
+      API_KEY='<api-key>'
+   
+   ```
+
 ### Setup Build Environment
 1. If you are developing on Windows you need to follow [this](https://buildozer.readthedocs.io/en/latest/installation.html#android-on-windows-10-or-11) tutorial before continuing (only section **Android on Windows 10 or 11**)
 2. run the following command to enter the virtual environment: 

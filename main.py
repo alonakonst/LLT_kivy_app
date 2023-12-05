@@ -17,6 +17,10 @@ class LLTApp(MDApp):
 
 
 if __name__ == '__main__':
+    # load 'config.env' into environment variables
+    from dotenv import load_dotenv
+    load_dotenv('config.env')
+
     dummy = False
     # check if the database exists
     from pathlib import Path

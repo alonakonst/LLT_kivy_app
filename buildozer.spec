@@ -13,7 +13,7 @@ package.domain = com.alonakonst
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py, kv
+source.include_exts = py, kv, env
 
 # (list) List of inclusions using pattern matching
 #source.include_patterns = assets/*,images/*.png
@@ -38,8 +38,8 @@ version = 0.1
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
 requirements = python3, sqlite3, certifi==2023.11.17, charset-normalizer==3.3.2, docutils==0.20.1, idna==3.6,
-               Kivy==2.2.1, Kivy-Garden==0.1.5, kivymd==1.1.1, peewee==3.17.0, Pygments==2.17.2, requests==2.31.0,
-               urllib3==2.1.0
+               Kivy==2.2.1, Kivy-Garden==0.1.5, kivymd==1.1.1, peewee==3.17.0, Pygments==2.17.2, python-dotenv==1.0.0,
+               requests==2.31.0, urllib3==2.1.0
 
 # (str) Presplash of the application
 #presplash.filename = %(source.dir)s/data/presplash.png
@@ -77,7 +77,7 @@ fullscreen = 0
 
 # (list) Permissions
 # (See https://python-for-android.readthedocs.io/en/latest/buildoptions/#build-options-1 for all the supported syntaxes and properties)
-#android.permissions = android.permission.INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18)
+android.permissions = android.permission.INTERNET
 
 # (int) Target Android API, should be as high as possible.
 android.api = 34

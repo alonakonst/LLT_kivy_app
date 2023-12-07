@@ -1,0 +1,22 @@
+
+
+
+<NavigationBar>:
+    id: navbar
+
+    MDBottomNavigation:
+        MDBottomNavigationItem:
+            name: 'add_to_dict'
+            text: 'Add'
+            on_tab_press: app.root.current = "add_to_dict"
+
+
+        MDBottomNavigationItem:
+            name: 'dictionary'
+            text: 'Dictionary'
+            on_tab_press: app.root.current = "dictionary"
+
+        MDBottomNavigationItem:
+            name: 'practice'
+            text: 'Practice'
+            on_tab_press: app.root.current = "practise"

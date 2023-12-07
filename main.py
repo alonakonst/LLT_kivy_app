@@ -1,8 +1,12 @@
-from kivymd.app import MDApp
-from kivy.core.window import Window
 from Controller.main_screen import MainScreenController
-from kivy.lang import Builder
-#Window.size = (310, 580)
+
+from kivymd.app import MDApp
+
+# from kivy.core.window import Window
+# Window.size = (310, 580)
+
+
+
 
 class LLTApp(MDApp):
 
@@ -15,7 +19,19 @@ class LLTApp(MDApp):
 
 
 if __name__ == '__main__':
+    # load 'config.env' into environment variables
+    from dotenv import load_dotenv
+    load_dotenv('config.env')
+
+    dummy = False
+    # check if the database exists
+    from pathlib import Path
+    if not Path('database.db').exists():
+        dummy = True
+
     from Utility import initialise_database
-    # If dummy=True will fill the database with content if it's empty
-    initialise_database(dummy=True)
+
+    # If dummy==True will fill the database with content if it's empty
+    initialise_database(dummy=dummy)
+
     LLTApp().run()

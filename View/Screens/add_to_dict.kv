@@ -1,3 +1,5 @@
+#: import NavigationBar View.Components.navbar.NavigationBar
+
 <Button>
     font_size: 32
     size_hint: (0.5,0.1)
@@ -19,6 +21,9 @@
         Rectangle:
             pos: self.pos
             size: self.size
+
+
+    NavigationBar:
 
 
     FloatLayout:
@@ -106,14 +111,3 @@
             size_hint: (0.8, 0.1)
 
 
-        Button:
-            text: "Show dictionary"
-            pos_hint: {"x": 0.0, "y": 0.0}
-            on_release:
-                app.root.current = "dictionary"
-
-        Button:
-            text: "Practise"
-            pos_hint: {"x": 0.5, "y": 0.0}
-            on_release:
-                app.root.current = "practise"

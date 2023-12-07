@@ -14,6 +14,7 @@
     NavigationBar:
 
     MDBoxLayout:
+
         orientation: 'vertical'
         padding: 30
 
@@ -59,14 +60,54 @@
             text_color: "darkblue"
             secondary_text: root.secondary_text
             tertiary_text: root.tertiary_text
-            italic: True
+
             _no_ripple_effect: True
 
         MDIconButton:
-            id: layer
+            id: popup
             icon: "chevron-down"
             theme_text_color: "Custom"
             text_color: "darkblue"
-            pos_hint: {"center_y": .5}
+            pos_hint: {"center_x": .9, "center_y": .3}
             on_press: Dictionary.show_popup(content, root)
 
+
+<PopupContent>:
+    title: ''
+    separator_height: 0
+
+    size_hint: (0.9, 0.4)
+    size: 400, 200
+    height: dp(400)
+    background: ''
+    background_color: (1, 1, 1, 1)
+
+    ScrollView:
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: dp(10)
+
+            MDLabel:
+                id: full_word
+                theme_text_color: 'Primary'
+                theme_text_color: 'Custom'
+                text_color: 'darkblue'
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            MDLabel:
+                id: full_translation
+                theme_text_color: 'Secondary'
+                italic: True
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            MDLabel:
+                id:full_notes
+                theme_text_color: 'Secondary'
+                italic: True
+                size_hint_y: None
+                height: self.texture_size[1]

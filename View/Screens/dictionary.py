@@ -43,28 +43,9 @@ class Dictionary(Screen):
     def show_search_results(self):
         print('it works')
 
-    #TODO Shorten this finction
     def show_popup(self, instance):
-        layout = MDBoxLayout(orientation='vertical', adaptive_height=True, padding='0dp')  # set orientation and use adaptive_height
-        text = MDLabel(text=instance.text, halign="left", valign="top", adaptive_height=True)
-        translations = MDLabel(text=instance.secondary_text, halign="left", valign="bottom", adaptive_height=True)
-        notes = MDLabel(text=instance.tertiary_text, halign="left", valign="bottom", adaptive_height=True)
-        layout.add_widget(text)
-        layout.add_widget(translations)
-        layout.add_widget(notes)
-        dialog = MDDialog(
-            type="custom",
-            content_cls=ScrollView(),  # set content of dialog to a ScrollView
-            buttons=[
-                MDFlatButton(
-                    text="edit",
-                    on_release=lambda *args: dialog.dismiss()
-                )
-            ],
-        )
-        dialog.content_cls.add_widget(layout)  # add the BoxLayout to the ScrollView
-        dialog.update_height()  # update the dialog
-        dialog.open()
+        popup = PopupContent(instance)
+        popup.open()
 
 
 class ListItem(MDCardSwipe):
@@ -73,3 +54,9 @@ class ListItem(MDCardSwipe):
     secondary_text = StringProperty()
     tertiary_text = StringProperty()
 
+class PopupContent(Popup):
+    def __init__(self, instance, **kwargs):
+        super().__init__(**kwargs)
+        self.ids.full_word.text = instance.text
+        self.ids.full_translation.text = instance.secondary_text
+        self.ids.full_notes.text = instance.tertiary_text

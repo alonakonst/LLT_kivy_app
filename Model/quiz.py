@@ -20,3 +20,6 @@ class Quiz:
 
     def is_correct_answer(self, answer):
         return self.answers[self.correct_answer_index] == answer
+
+    def correct_answer(self):
+        return self.answers[self.correct_answer_index]

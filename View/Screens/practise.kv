@@ -19,6 +19,17 @@
             text_size: self.width, None
             halign: 'center'
 
+        MDLabel:
+            id: correct_answer
+            text: ' '
+            theme_text_color: "Custom"
+            text_color: "darkblue"
+            pos_hint: {"x": 0.0, "y": 0.7}
+            font_size: '15sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
+            halign: 'center'
+
         Button:
             id: next_button
             text: 'next'
@@ -26,6 +37,7 @@
             size_hint: (0.4, 0.1)
             pos_hint: {'x': 0.3, 'y': 0.6}
             on_press: root.controller.next_button_on_press()
+            on_press: root.next_quiz()
             disabled: True
 
         GridLayout:

@@ -2,6 +2,7 @@
 #: import NavigationBar View.Components.navbar.NavigationBar
 
 
+
 <Dictionary>
     canvas.before:
         Color:
@@ -26,11 +27,10 @@
 
         MDScrollView:
 
-
-
             MDList:
                 id: container
                 padding: 0
+
 
 <ListItem>
     id: list_item
@@ -38,7 +38,6 @@
     height: content.height
     md_bg_color: 'white'
     anchor: 'left'
-
 
     MDCardSwipeLayerBox:
 
@@ -62,3 +61,12 @@
             tertiary_text: root.tertiary_text
             italic: True
             _no_ripple_effect: True
+
+        MDIconButton:
+            id: layer
+            icon: "chevron-down"
+            theme_text_color: "Custom"
+            text_color: "darkblue"
+            pos_hint: {"center_y": .5}
+            on_press: Dictionary.show_popup(content, root)
+

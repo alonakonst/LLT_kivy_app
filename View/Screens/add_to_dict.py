@@ -36,6 +36,7 @@ class AddToDict(Screen):
 
     # clearing out all the fields when entry is submitted to the database
     def clear_fields(self):
+
         # clearing out word/phrase textfield
         self.ids.word.text = ''
         self.ids.word.hint_text = 'Enter a new word or phrase: '
@@ -46,8 +47,11 @@ class AddToDict(Screen):
         self.ids.users_translation.text = ''
         self.ids.suggested_translation.text = 'Suggested'
         self.ids.suggested_checkbox.active = False
+
+
         self.ids.users_checkbox.active = False
         self.ids.condition_message.text = ""
+
 
         #clearing out notes field
         self.ids.notes.text = ''

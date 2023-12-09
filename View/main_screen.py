@@ -7,8 +7,6 @@ from View.Screens.add_to_dict import AddToDict
 from View.Screens.dictionary import Dictionary
 from View.Screens.practise import Practise
 
-
-
 class MainScreenView(ScreenManager):
     controller = ObjectProperty()
     model = ObjectProperty()

@@ -31,7 +31,7 @@
 
         MDLabel:
             text: 'Enter a new word or phrase: '
-            pos_hint: {"x": 0.1, "y": 0.80}
+            pos_hint: {"x": 0.1, "y": 0.90}
             font_size: '20sp'
             size_hint: (1.0, None)
             text_size: self.width, None
@@ -51,8 +51,8 @@
 
         GridLayout:
             cols: 3
-            pos_hint: {'x': 0.05, 'y': 0.55}
-            size_hint: (0.85, 0.13)
+            pos_hint: {'x': 0.05, 'y': 0.43}
+            size_hint: (0.85, 0.20)
 
             MDIconButton:
                 id: 'refresh_button'
@@ -68,8 +68,9 @@
                 text: '...'
                 text_color: "darkgrey"
                 font_size: '15sp'
-                size_hint: (1.0, None)
+                size_hint: (1.0, 1)
                 text_size: self.width, None
+                valign: 'center'
 
             MDIconButton:
                 icon: ''
@@ -80,7 +81,7 @@
 
             TextInput:
                 id: users_translation
-                size_hint: (1, None)
+                size_hint: (1, 1)
                 height: 50
                 multiline: False
                 hint_text: "Enter your own translation..."
@@ -109,7 +110,7 @@
             id: notes
             multiline:False
             hint_text: "type your notes here..."
-            pos_hint: {"x": 0.1, "y": 0.3}
+            pos_hint: {"x": 0.1, "y": 0.27}
 
         Button:
             text: "Submit to dictionary"

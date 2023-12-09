@@ -1,4 +1,6 @@
 from kivy.uix.screenmanager import Screen
+from kivymd.uix.dialog import MDDialog
+
 from Controller import AddToDictController
 class AddToDict(Screen):
 
@@ -85,3 +87,7 @@ class AddToDict(Screen):
 
     def get_word(self):
         return self.ids.word.text
+
+    def show_full(self, text):
+        popup = MDDialog(title=text)
+        popup.open()

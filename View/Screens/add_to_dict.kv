@@ -25,7 +25,6 @@
 
     NavigationBar:
 
-
     FloatLayout:
         size: root.width, root.height
 
@@ -63,14 +62,18 @@
                 id: suggested_checkbox
                 size_hint_x: None
 
-            MDLabel:
-                id: suggested_translation
-                text: '...'
-                text_color: "darkgrey"
-                font_size: '15sp'
-                size_hint: (1.0, 1)
-                text_size: self.width, None
-                valign: 'center'
+            MDFlatButton:
+                size_hint: (0.8, None)
+                on_press: root.show_full(suggested_translation.text)
+
+                MDLabel:
+                    id: suggested_translation
+                    text: 'suggestion'
+                    shorten: True
+                    text_color: "darkgrey"
+                    font_size: '15sp'
+                    size_hint: (1.0, None)
+                    text_size: self.width, None
 
             MDIconButton:
                 icon: ''

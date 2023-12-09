@@ -18,23 +18,28 @@ class PractiseController:
         :return:
         """
 
-        dictionary_entry_result_set = DictionaryEntry.select()
+        dictionary_entries = []
+        # iterate over the dictionary entries that have a translation
+        for dictionary_entry in DictionaryEntry.select().where(DictionaryEntry.translation is not None):
+            # exclude dictionary entries that have a space in them (i.e. they are composed of multiple words)
+            if ' ' not in dictionary_entry.text:
+                dictionary_entries.append(dictionary_entry)
 
-        # check if there is enough dictionary entries to create a quiz
-        if len(dictionary_entry_result_set) < 4:
+        # shuffle the list
+        random.shuffle(dictionary_entries)
+        
+        if len(dictionary_entries) < 4:
             self.current_quiz = Quiz('frokost', ['lunch', 'dinner', 'breakfast', 'fresh'], 0)
             return self.current_quiz
 
-        # creates a dictionary of four random words from the database and their translations
-        quiz_set = {}
-        for question in dictionary_entry_result_set.order_by(fn.Random()).limit(4):
-            quiz_set[question.text] = question.translation
+        # randomly pick the answer among the first 4
+        answer_index = random.randint(0, 3)
+        question = dictionary_entries[answer_index].text
+        # the first 4 words will make the quiz
+        answers = [dictionary_entry.translation for dictionary_entry in dictionary_entries[:4]]
+        quiz = Quiz(question, answers, answer_index)
 
-        # selects one question word from quiz_set
-        index = random.randint(0, 3)
-        question = list(quiz_set)[index]
-
-        self.current_quiz = Quiz(question,  list(quiz_set.values()), index)
+        self.current_quiz = quiz
 
         return self.current_quiz
 

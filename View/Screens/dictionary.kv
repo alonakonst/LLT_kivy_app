@@ -11,26 +11,29 @@
             pos: self.pos
             size: self.size
 
-    NavigationBar:
 
-    MDBoxLayout:
-
-        orientation: 'vertical'
-        padding: 30
-
-        TextInput:
-            id: search
-            size_hint: (1, None)
-            height: 50
-            multiline: False
-            hint_text: "Search"
-            on_focus: root.show_search_results()
+    RelativeLayout:
 
         MDScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
 
-            MDList:
-                id: container
-                padding: 0
+                MDList:
+                    id: container
+                    padding: 0
+
+
+
+
+
+
+        NavigationBar:
+            size_hint_y: None
+            height: dp(50)
+            orientation: 'horizontal'
+            pos_hint: {'bottom': 1}
 
 
 <ListItem>

@@ -81,7 +81,4 @@ class AddToDict(Screen):
         self.ids.users_checkbox.active=True
 
     def suggested_translation(self, text):
-
-        self.controller.translate(text)
-
-        self.ids.suggested_translation.text = f'the translation of {text}'
+        self.ids.suggested_translation.text = self.controller.translate(text)

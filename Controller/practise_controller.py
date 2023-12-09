@@ -27,6 +27,10 @@ class PractiseController:
 
         # shuffle the list
         random.shuffle(dictionary_entries)
+        
+        if len(dictionary_entries) < 4:
+            self.current_quiz = Quiz('frokost', ['lunch', 'dinner', 'breakfast', 'fresh'], 0)
+            return self.current_quiz
 
         # randomly pick the answer among the first 4
         answer_index = random.randint(0, 3)

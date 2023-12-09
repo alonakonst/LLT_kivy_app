@@ -1,13 +1,10 @@
-from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
-from kivymd.uix.dialog import MDDialog
-
 from Controller import AddToDictController
 class AddToDict(Screen):
 
     selected_translations = []
     def __init__(self, **kwargs):
-        self.controller = AddToDictController()
+        self.controller = AddToDictController(self)
         self.fields_cleared = False
         super().__init__(**kwargs)
 
@@ -48,7 +45,7 @@ class AddToDict(Screen):
         #clearing out translation
         AddToDict.selected_translations = []
         self.ids.users_translation.text = ''
-        self.ids.suggested_translation.text = 'Suggested'
+        self.ids.suggested_translation.text = '...'
         self.ids.suggested_checkbox.active = False
 
 
@@ -83,12 +80,8 @@ class AddToDict(Screen):
     def users_checkbox_active(self):
         self.ids.users_checkbox.active=True
 
-    def suggested_translation(self, text):
+    def set_suggested_translation(self, suggested_translation):
+        self.ids.suggested_translation.text = suggested_translation
 
-        self.controller.translate(text)
-
-        self.ids.suggested_translation.text = f'the translation of {text}'
-
-    def show_full(self, text):
-        popup = MDDialog(title = text)
-        popup.open()
+    def get_word(self):
+        return self.ids.word.text

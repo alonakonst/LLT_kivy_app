@@ -28,7 +28,7 @@ def create_dummy_database():
     DictionaryEntry(text='frokost', translation='lunch', notes='1234567890').save()
     DictionaryEntry(text='stjerne', translation='star', notes='1234567890').save()
     DictionaryEntry(text='hav', translation='sea', notes='1234567890').save()
-    DictionaryEntry(text='bog', translation='This is a annoyingly long phrase, probably hard to render',
+    DictionaryEntry(text='bog 1', translation='This is a annoyingly long phrase, probably hard to render',
                     notes='1234567890').save()
     DictionaryEntry(text='smil', translation='smile', notes='1234567890').save()
     DictionaryEntry(text='Vinter', translation='winter',
@@ -37,13 +37,13 @@ def create_dummy_database():
     DictionaryEntry(text='This is a annoyingly long phrase, probably hard to render',
                     translation='This is a annoyingly long phrase, probably hard to render',
                     notes='This is a annoyingly long phrase, probably hard to render').save()
-    DictionaryEntry(text='1',
+    DictionaryEntry(text='1 1',
                     translation='This is a annoyingly long phrase, probably hard to render',
                     notes='This is a annoyingly long phrase, probably hard to render').save()
-    DictionaryEntry(text='2',
+    DictionaryEntry(text='2 1',
                     translation='3',
                     notes='This is a annoyingly long phrase, probably hard to render').save()
-    DictionaryEntry(text='4',
+    DictionaryEntry(text='4 1',
                     translation='This is a annoyingly long phrase, probably hard to render',
                     notes='5').save()
 

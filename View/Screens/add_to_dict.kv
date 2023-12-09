@@ -22,98 +22,100 @@
             pos: self.pos
             size: self.size
 
-    RelativeLayout:
 
-        NavigationBar:
+    NavigationBar:
 
-        FloatLayout:
-            size: root.width, root.height
+
+    FloatLayout:
+        size: root.width, root.height
+
+        MDLabel:
+            text: 'Enter a new word or phrase: '
+            pos_hint: {"x": 0.1, "y": 0.90}
+            font_size: '20sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
+
+        TextInput:
+            id: word
+            multiline:False
+            hint_text: "type here..."
+            pos_hint: {"x": 0.1, "y": 0.75}
+
+        MDLabel:
+            text: 'Translation: '
+            pos_hint: {"x": 0.1, "y": 0.63}
+            font_size: '20sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
+
+        GridLayout:
+            cols: 3
+            pos_hint: {'x': 0.05, 'y': 0.43}
+            size_hint: (0.85, 0.20)
+
+            MDIconButton:
+                id: 'refresh_button'
+                icon: 'refresh'
+                on_press: self.parent.parent.parent.controller.refresh_button_on_press()
+
+            CheckBox:
+                id: suggested_checkbox
+                size_hint_x: None
 
             MDLabel:
-                text: 'Enter a new word or phrase: '
-                pos_hint: {"x": 0.1, "y": 0.80}
-                font_size: '20sp'
-                size_hint: (1.0, None)
+                id: suggested_translation
+                text: '...'
+                text_color: "darkgrey"
+                font_size: '15sp'
+                size_hint: (1.0, 1)
                 text_size: self.width, None
+                valign: 'center'
+
+            MDIconButton:
+                icon: ''
+
+            CheckBox:
+                id: users_checkbox
+                size_hint_x: None
 
             TextInput:
-                id: word
-                multiline:False
-                hint_text: "type here..."
-                pos_hint: {"x": 0.1, "y": 0.75}
+                id: users_translation
+                size_hint: (1, 1)
+                height: 50
+                multiline: False
+                hint_text: "Enter your own translation..."
+                on_focus: root.users_checkbox_active()
 
-            MDLabel:
-                text: 'Translation: '
-                pos_hint: {"x": 0.1, "y": 0.63}
-                font_size: '20sp'
-                size_hint: (1.0, None)
-                text_size: self.width, None
+        MDLabel:
+            id: condition_message
+            text: ''
+            theme_text_color: "Custom"
+            text_color: "darkred"
+            pos_hint: {"x": 0.0, "y": 0.4}
+            font_size: '13sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
+            halign: 'center'
 
-            GridLayout:
-                cols:2
-                pos_hint: {'x': 0.05, 'y': 0.55}
-                size_hint: (0.85, 0.13)
+        MDLabel:
+            text: 'Notes: '
+            text_color: "black"
+            pos_hint: {"x": 0.1, "y": 0.35}
+            font_size: '20sp'
+            size_hint: (1.0, None)
+            text_size: self.width, None
 
-                CheckBox:
-                    id: suggested_checkbox
-                    size_hint_x: None
+        TextInput:
+            id: notes
+            multiline:False
+            hint_text: "type your notes here..."
+            pos_hint: {"x": 0.1, "y": 0.27}
 
-                MDFlatButton:
-                    size_hint: (1.0, None)
-                    on_press: root.show_full(suggested_translation.text)
-
-                    MDLabel:
-                        id: suggested_translation
-                        text: 'suggestion'
-                        shorten: True
-                        text_color: "darkgrey"
-                        font_size: '15sp'
-                        size_hint: (1.0, None)
-                        text_size: self.width, None
-
-
-                CheckBox:
-                    id: users_checkbox
-                    size_hint_x: None
-
-                TextInput:
-                    id: users_translation
-                    size_hint: (1, None)
-                    height: 50
-                    multiline: False
-                    hint_text: "Enter your own translation..."
-                    on_focus: root.users_checkbox_active()
-
-            MDLabel:
-                id: condition_message
-                text: ''
-                theme_text_color: "Custom"
-                text_color: "darkred"
-                pos_hint: {"x": 0.0, "y": 0.4}
-                font_size: '13sp'
-                size_hint: (1.0, None)
-                text_size: self.width, None
-                halign: 'center'
-
-            MDLabel:
-                text: 'Notes: '
-                text_color: "black"
-                pos_hint: {"x": 0.1, "y": 0.35}
-                font_size: '20sp'
-                size_hint: (1.0, None)
-                text_size: self.width, None
-
-            TextInput:
-                id: notes
-                multiline:False
-                hint_text: "type your notes here..."
-                pos_hint: {"x": 0.1, "y": 0.3}
-                on_focus: root.suggested_translation(word.text)
-
-            Button:
-                text: "Submit to dictionary"
-                pos_hint: {"x": 0.1, "y": 0.15}
-                on_press:root.insert()
-                size_hint: (0.8, 0.1)
+        Button:
+            text: "Submit to dictionary"
+            pos_hint: {"x": 0.1, "y": 0.15}
+            on_press:root.insert()
+            size_hint: (0.8, 0.1)
 
 

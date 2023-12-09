@@ -2,11 +2,6 @@ from Controller.main_screen import MainScreenController
 
 from kivymd.app import MDApp
 
-# from kivy.core.window import Window
-# Window.size = (310, 580)
-
-
-
 
 class LLTApp(MDApp):
 
@@ -19,6 +14,12 @@ class LLTApp(MDApp):
 
 
 if __name__ == '__main__':
+    # Set window.size for debugging
+    from kivy.utils import platform
+    if platform != 'android':
+        from kivy.core.window import Window
+        Window.size = (1080 / 3, 2400 / 3)
+
     # load 'config.env' into environment variables
     from dotenv import load_dotenv
     load_dotenv('config.env')

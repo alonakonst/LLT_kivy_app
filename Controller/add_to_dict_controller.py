@@ -6,7 +6,9 @@ import os
 
 class AddToDictController:
 
-    def __init__(self):
+    def __init__(self, view):
+        self.view = view
+
         api_key = os.environ.get('API_KEY')
 
         if not api_key:
@@ -19,6 +21,11 @@ class AddToDictController:
         dictionary_entry.save()
 
     def translate(self, text):
-        #translation = TranslationService().translate(text)
-        #print(translation)
-        pass
+        return self.translation_service.translate(text)
+
+    def refresh_button_on_press(self):
+        word = self.view.get_word()
+
+        if word:
+            translation = self.translation_service.translate(word)
+            self.view.set_suggested_translation(translation)

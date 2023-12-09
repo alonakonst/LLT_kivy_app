@@ -4,20 +4,21 @@
     size_hint_y: None
     height: dp(50)
     orientation: 'horizontal'
-    pos_hint: {'bottom': 1}
+    pos_hint: {'top': 1}
 
     MDBottomNavigation:
         MDBottomNavigationItem:
             name: 'add_to_dict'
             text: 'Add'
-            on_tab_press: app.root.current = "add_to_dict"
+            on_tab_press: root.smth(self.parent.current)
 
         MDBottomNavigationItem:
             name: 'dictionary'
             text: 'Dictionary'
-            on_tab_press: app.root.current = "dictionary"
+            on_tab_press: self.parent.current = 'dictionary'
+
 
         MDBottomNavigationItem:
             name: 'practice'
             text: 'Practice'
-            on_tab_press: app.root.current = "practise"
+            on_tab_press: root.smth(self.parent.current)

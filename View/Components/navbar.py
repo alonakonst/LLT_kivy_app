@@ -5,6 +5,5 @@ from kivy.uix.boxlayout import BoxLayout
 
 
 class NavigationBar(BoxLayout):
-
-    pass
-
+    def smth(self,bingo):
+        print(bingo)

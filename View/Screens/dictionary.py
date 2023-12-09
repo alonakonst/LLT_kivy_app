@@ -18,7 +18,6 @@ class Dictionary(Screen):
         super().__init__(**kwargs)
 
     #TODO MOVE DictionaryEntry().select() to controller
-    #TODO: if there are no notes, then write: no notes
     def on_enter(self):
         for i in DictionaryEntry().select():
             self.ids.container.add_widget(

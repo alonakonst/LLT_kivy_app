@@ -58,13 +58,19 @@
                 id: suggested_checkbox
                 size_hint_x: None
 
-            MDLabel:
-                id: suggested_translation
-                text: 'suggestion'
-                text_color: "darkgrey"
-                font_size: '15sp'
+            MDFlatButton:
                 size_hint: (1.0, None)
-                text_size: self.width, None
+                on_press: root.show_full(suggested_translation.text)
+
+                MDLabel:
+                    id: suggested_translation
+                    text: 'suggestion'
+                    shorten: True
+                    text_color: "darkgrey"
+                    font_size: '15sp'
+                    size_hint: (1.0, None)
+                    text_size: self.width, None
+
 
             CheckBox:
                 id: users_checkbox

@@ -1,4 +1,7 @@
+from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
+from kivymd.uix.dialog import MDDialog
+
 from Controller import AddToDictController
 class AddToDict(Screen):
 
@@ -85,3 +88,7 @@ class AddToDict(Screen):
         self.controller.translate(text)
 
         self.ids.suggested_translation.text = f'the translation of {text}'
+
+    def show_full(self, text):
+        popup = MDDialog(title = text)
+        popup.open()

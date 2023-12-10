@@ -47,10 +47,14 @@ class AddToDict(Screen):
         AddToDict.selected_translations = []
         self.ids.users_translation.text = ''
         self.ids.suggested_translation.text = '...'
+
+        #setting checkboxes to initial stage
         self.ids.suggested_checkbox.active = False
         self.ids.suggested_checkbox.disabled = True
-
         self.ids.users_checkbox.active = False
+        self.ids.users_checkbox.disabled = True
+
+
         self.ids.condition_message.text = ""
 
         #clearing out notes field
@@ -78,8 +82,11 @@ class AddToDict(Screen):
             return True
 
     # set checkbox of user's translation checked when user presses on user's translation TextInput
-    def users_checkbox_active(self):
-        self.ids.users_checkbox.active=True
+    def users_checkbox_active(self, text):
+        if text != '':
+           self.ids.users_checkbox.active = True
+           self.ids.users_checkbox.disabled = False
+
 
     def set_suggested_translation(self, suggested_translation):
         self.ids.suggested_translation.text = suggested_translation

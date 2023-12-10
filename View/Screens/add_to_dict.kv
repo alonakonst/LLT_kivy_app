@@ -1,7 +1,7 @@
 #: import NavigationBar View.Components.navbar.NavigationBar
 
 <MDRaisedButton>:
-    md_bg_color: 'white'  # Background color (purple in this case)
+    md_bg_color: 'white'
     text_color: 'darkblue'  # Text color (white in this case)
     font_size: '15sp'
 
@@ -24,7 +24,7 @@
         size: root.width, root.height
 
         MDLabel:
-            text: 'Word/phrase '
+            text: 'Danish word or phrase '
             pos_hint: {"x": 0.1, "y": 0.90}
             font_size: '18sp'
             size_hint: (1.0, None)
@@ -35,6 +35,7 @@
             multiline:False
             hint_text: "type here..."
             pos_hint: {"x": 0.1, "y": 0.85}
+            on_focus: root.users_checkbox_active(self, users_translation.text)
 
         MDLabel:
             text: 'Translation: '
@@ -79,12 +80,13 @@
                 id: users_checkbox
                 size_hint_x: None
 
+
             TextInput:
                 id: users_translation
                 size_hint: (0.5,0.5)
                 multiline: False
                 hint_text: "Type your own..."
-                on_focus: root.users_checkbox_active()
+                on_focus: root.users_checkbox_active(self, word.text)
 
         MDLabel:
             id: condition_message

@@ -16,7 +16,6 @@ class LLTApp(MDApp):
     def build(self):
         return MainScreenView()
 
-
 if __name__ == '__main__':
     # Set window.size for debugging
     from kivy.utils import platform

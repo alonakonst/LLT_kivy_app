@@ -3,7 +3,6 @@ from kivymd.uix.dialog import MDDialog
 
 from Controller import AddToDictController
 class AddToDict(Screen):
-
     selected_translations = []
     def __init__(self, **kwargs):
         self.controller = AddToDictController(self)

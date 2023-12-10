@@ -4,15 +4,9 @@ from kivymd.uix.bottomnavigation import MDBottomNavigation
 class NavigationBar(BoxLayout):
 
     def switch_screens(self, root, screen, order):
-        print(root.screen_manager.current)
-        root.screen_manager.current = screen
-        print(root.screen_manager.current)
+        if root.screen_manager.current_screen.order < order:
+            root.screen_manager.transition.direction = 'left'
+        elif root.screen_manager.current_screen.order > order:
+            root.screen_manager.transition.direction = 'right'
 
-    #todo: implement this logic in my function
-    def change_screen(self, to_screen):
-        sm = self.ids.tab_manager
-        print(type(sm))
-        current = sm.current_screen
-        if current.order < sm.get_screen(to_screen).order:   sm.transition.direction = 'left'
-        if current.order > sm.get_screen(to_screen).order:   sm.transition.direction = 'right'
-        self.current_tab = current.order
+        root.screen_manager.current = screen

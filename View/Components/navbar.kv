@@ -6,23 +6,25 @@
     orientation: 'horizontal'
     pos_hint: {'bottom': 1}
 
+
     MDBottomNavigation:
         panel_color: 1, 1, 1, 1
+        text_color_active: "darkblue"
 
         MDBottomNavigationItem:
-            order:'1'
+            order: 1
             name: 'add_to_dict'
             text: 'Add'
             on_enter: root.switch_screens(app.root, self.name, self.order)
 
         MDBottomNavigationItem:
-            order:'2'
+            order: 2
             name: 'dictionary'
             text: 'Dictionary'
             on_enter: root.switch_screens(app.root, self.name, self.order)
 
         MDBottomNavigationItem:
-            order:'3'
+            order: 3
             name: 'practise'
             text: 'Practise'
             on_enter: root.switch_screens(app.root, self.name, self.order)

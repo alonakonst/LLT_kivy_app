@@ -48,6 +48,7 @@ class AddToDict(Screen):
         self.ids.users_translation.text = ''
         self.ids.suggested_translation.text = '...'
         self.ids.suggested_checkbox.active = False
+        self.ids.suggested_checkbox.disabled = True
 
         self.ids.users_checkbox.active = False
         self.ids.condition_message.text = ""

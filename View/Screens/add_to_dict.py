@@ -87,7 +87,6 @@ class AddToDict(Screen):
 
         if text != '' and AddToDict.focus == True:
            self.ids.users_checkbox.active = True
-           self.ids.users_checkbox.disabled = False
            AddToDict.focus = False
 
 

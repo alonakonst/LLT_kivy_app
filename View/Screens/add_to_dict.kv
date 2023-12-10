@@ -1,35 +1,32 @@
 #: import NavigationBar View.Components.navbar.NavigationBar
 
-<Button>
-    font_size: 32
-    size_hint: (0.5,0.1)
-    color: 'black'
-    background_color: "lightgrey"
+<MDRaisedButton>:
+    md_bg_color: 'white'  # Background color (purple in this case)
+    text_color: 'darkblue'  # Text color (white in this case)
+    font_size: '15sp'
 
 <TextInput>
     size_hint: (0.8,0.07)
-    hint_text_color: 'darkgrey'
+    hint_text_color: 'darkblue'
+    padding_y: [self.height / 2 - (self.line_height / 2), 0]
+    font_size: '14sp'
+    background_color: [0,0,0,0]
+    foreground_color: 'darkblue'
 
 <CheckBox>
     color: "grey" #color of the square box
 
 <AddToDict>
     order: 1
-
-    canvas.before:
-        Color:
-            rgba: (1,1,1,1)
-        Rectangle:
-            pos: self.pos
-            size: self.size
+    size_hint: (1, 0.9)
 
     FloatLayout:
         size: root.width, root.height
 
         MDLabel:
-            text: 'Enter a new word or phrase: '
+            text: 'Word/phrase '
             pos_hint: {"x": 0.1, "y": 0.90}
-            font_size: '20sp'
+            font_size: '18sp'
             size_hint: (1.0, None)
             text_size: self.width, None
 
@@ -37,31 +34,34 @@
             id: word
             multiline:False
             hint_text: "type here..."
-            pos_hint: {"x": 0.1, "y": 0.75}
+            pos_hint: {"x": 0.1, "y": 0.85}
 
         MDLabel:
             text: 'Translation: '
-            pos_hint: {"x": 0.1, "y": 0.63}
+            pos_hint: {"x": 0.1, "y": 0.62}
             font_size: '20sp'
             size_hint: (1.0, None)
             text_size: self.width, None
 
-        GridLayout:
-            cols: 3
-            pos_hint: {'x': 0.05, 'y': 0.43}
-            size_hint: (0.85, 0.20)
+        MDIconButton:
+            id: 'refresh_button'
+            icon: 'google-translate'
+            theme_text_color: "Custom"
+            text_color: "darkblue"
+            on_press: self.parent.parent.controller.refresh_button_on_press()
+            pos_hint: {"x": 0.8, "y": 0.65}
 
-            MDIconButton:
-                id: 'refresh_button'
-                icon: 'refresh'
-                on_press: self.parent.parent.parent.controller.refresh_button_on_press()
+        GridLayout:
+            cols: 2
+            pos_hint: {'x': 0.05, 'y': 0.47}
+            size_hint: (0.85, 0.20)
 
             CheckBox:
                 id: suggested_checkbox
                 size_hint_x: None
 
             MDFlatButton:
-                size_hint: (0.8, None)
+                size_hint: (1, 1)
                 on_press: root.show_full(suggested_translation.text)
 
                 MDLabel:
@@ -73,19 +73,16 @@
                     size_hint: (1.0, None)
                     text_size: self.width, None
 
-            MDIconButton:
-                icon: ''
-
             CheckBox:
                 id: users_checkbox
                 size_hint_x: None
 
             TextInput:
                 id: users_translation
-                size_hint: (1, 1)
-                height: 50
+                size_hint: (0.5,0.5)
                 multiline: False
-                hint_text: "Enter your own translation..."
+                hint_text: "Type your own..."
+
                 on_focus: root.users_checkbox_active()
 
         MDLabel:
@@ -102,21 +99,22 @@
         MDLabel:
             text: 'Notes: '
             text_color: "black"
-            pos_hint: {"x": 0.1, "y": 0.35}
+            pos_hint: {"x": 0.1, "y": 0.30}
             font_size: '20sp'
             size_hint: (1.0, None)
             text_size: self.width, None
 
         TextInput:
             id: notes
-            multiline:False
-            hint_text: "type your notes here..."
-            pos_hint: {"x": 0.1, "y": 0.27}
+            multiline: False
+            hint_text: "Type your notes here..."
+            pos_hint: {"x": 0.1, "y": 0.25}
 
-        Button:
+
+        MDRaisedButton:
             text: "Submit to dictionary"
-            pos_hint: {"x": 0.1, "y": 0.15}
-            on_press:root.insert()
+            pos_hint: {"x": 0.1, "y": 0.1}
+            on_press: root.insert()
             size_hint: (0.8, 0.1)
 
 

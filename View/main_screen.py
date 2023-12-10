@@ -13,6 +13,7 @@ from View.Screens.practise import Practise
 class MainScreenView(BoxLayout):
     model = ObjectProperty()
     orientation = 'vertical'
+    spacing = 0
 
     # Loading kv files of every page
     Builder.load_file('View/Screens/add_to_dict.kv')

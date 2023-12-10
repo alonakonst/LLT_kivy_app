@@ -22,7 +22,7 @@ if __name__ == '__main__':
     from kivy.utils import platform
     if platform != 'android':
         from kivy.core.window import Window
-        Window.size = (1080 / 3, 2400 / 3)
+        Window.size = (1080 / 4, 2400 / 4)
 
     # load 'config.env' into environment variables
     from dotenv import load_dotenv

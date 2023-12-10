@@ -4,6 +4,7 @@ from kivymd.uix.dialog import MDDialog
 from Controller import AddToDictController
 class AddToDict(Screen):
     selected_translations = []
+    focus = True
     def __init__(self, **kwargs):
         self.controller = AddToDictController(self)
         self.fields_cleared = False
@@ -53,7 +54,7 @@ class AddToDict(Screen):
         self.ids.suggested_checkbox.disabled = True
         self.ids.users_checkbox.active = False
         self.ids.users_checkbox.disabled = True
-
+        AddToDict.focus = True
 
         self.ids.condition_message.text = ""
 
@@ -82,10 +83,13 @@ class AddToDict(Screen):
             return True
 
     # set checkbox of user's translation checked when user presses on user's translation TextInput
-    def users_checkbox_active(self, text):
-        if text != '':
+    def users_checkbox_active(self, widget, text):
+
+        if text != '' and AddToDict.focus == True:
            self.ids.users_checkbox.active = True
            self.ids.users_checkbox.disabled = False
+           AddToDict.focus = False
+
 
 
     def set_suggested_translation(self, suggested_translation):

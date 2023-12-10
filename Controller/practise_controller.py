@@ -23,6 +23,8 @@ class PractiseController:
         for dictionary_entry in DictionaryEntry.select().where(DictionaryEntry.translation is not None):
             # exclude dictionary entries that have a space in them (i.e. they are composed of multiple words)
             if ' ' not in dictionary_entry.text:
+                # ignore empty translation
+                if dictionary_entry.translation == '': continue
                 dictionary_entries.append(dictionary_entry)
 
         # shuffle the list

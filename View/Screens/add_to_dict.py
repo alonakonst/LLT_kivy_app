@@ -53,7 +53,6 @@ class AddToDict(Screen):
         self.ids.suggested_checkbox.active = False
         self.ids.suggested_checkbox.disabled = True
         self.ids.users_checkbox.active = False
-        self.ids.users_checkbox.disabled = True
         AddToDict.focus = True
 
         self.ids.condition_message.text = ""

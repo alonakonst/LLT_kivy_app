@@ -2,6 +2,7 @@ import os
 from kivy.lang import Builder
 from kivy.properties import ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.screenmanager import ScreenManager
 
 from View.Components.navbar import NavigationBar
@@ -24,10 +25,11 @@ class MainScreenView(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.navbar = NavigationBar()
-        self.add_widget(self.navbar)
+
         self.screen_manager = ScreenManager()
         self.add_widget(self.screen_manager)
+        self.navbar = NavigationBar()
+        self.add_widget(self.navbar)
 
         self.screen_manager.add_widget(AddToDict(name='add_to_dict'))
         self.screen_manager.add_widget(Dictionary(name='dictionary'))

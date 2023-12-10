@@ -86,6 +86,9 @@ class AddToDict(Screen):
     def get_word(self):
         return self.ids.word.text
 
+    def enable_checkbox(self):
+        self.ids.suggested_checheckbox.disabled = False
+
     def show_full(self, text):
         popup = MDDialog(title=text)
         popup.open()

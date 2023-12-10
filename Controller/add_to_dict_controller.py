@@ -23,6 +23,7 @@ class AddToDictController:
     def translate(self, text):
         try:
             translation = self.translation_service.translate(text)
+            self.view.enable_checkbox()
             return translation
         except TranslationServiceError as e:
             return 'Translation Error'
@@ -33,3 +34,4 @@ class AddToDictController:
         if word:
             translation = self.translate(word)
             self.view.set_suggested_translation(translation)
+

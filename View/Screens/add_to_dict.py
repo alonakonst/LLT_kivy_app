@@ -74,6 +74,8 @@ class AddToDict(Screen):
             if self.ids.suggested_checkbox.active:
                 self.ids.users_checkbox.active = False
                 return True
+
+            return True
         else:
             return True
 

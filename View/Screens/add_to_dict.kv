@@ -82,7 +82,6 @@
                 size_hint: (0.5,0.5)
                 multiline: False
                 hint_text: "Type your own..."
-
                 on_focus: root.users_checkbox_active()
 
         MDLabel:
@@ -110,8 +109,7 @@
             hint_text: "Type your notes here..."
             pos_hint: {"x": 0.1, "y": 0.25}
 
-
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text: "Submit to dictionary"
             pos_hint: {"x": 0.1, "y": 0.1}
             on_press: root.insert()

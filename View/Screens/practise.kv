@@ -1,7 +1,7 @@
 #: import NavigationBar View.Components.navbar.NavigationBar
 
 <Practise>
-
+    order: 3
     canvas.before:
         Color:
             rgba: (1,1,1,1)
@@ -9,60 +9,59 @@
             pos: self.pos
             size: self.size
 
-    NavigationBar:
+    RelativeLayout:
 
+        FloatLayout:
+            size: root.width, root.height
 
-    FloatLayout:
-        size: root.width, root.height
+            MDLabel:
+                id: question
+                pos_hint: {'x': 0.0, 'y': 0.8}
+                text_color: "black"
+                font_size: '20sp'
+                size_hint: (1.0, None)
+                text_size: self.width, None
+                halign: 'center'
 
-        MDLabel:
-            id: question
-            pos_hint: {'x': 0.0, 'y': 0.8}
-            text_color: "black"
-            font_size: '20sp'
-            size_hint: (1.0, None)
-            text_size: self.width, None
-            halign: 'center'
-
-        MDLabel:
-            id: correct_answer
-            text: ' '
-            theme_text_color: "Custom"
-            text_color: "darkblue"
-            pos_hint: {"x": 0.0, "y": 0.7}
-            font_size: '15sp'
-            size_hint: (1.0, None)
-            text_size: self.width, None
-            halign: 'center'
-
-        Button:
-            id: next_button
-            text: 'next'
-            opacity: 0
-            size_hint: (0.4, 0.1)
-            pos_hint: {'x': 0.3, 'y': 0.6}
-            on_press: root.controller.next_button_on_press()
-            on_press: root.next_quiz()
-            disabled: True
-
-        GridLayout:
-            id: answer_button_layout
-            cols: 2
-            pos_hint: {'x': 0.0, 'y': 0.1}
-            size_hint: (1.0, 0.4)
+            MDLabel:
+                id: correct_answer
+                text: ' '
+                theme_text_color: "Custom"
+                text_color: "darkblue"
+                pos_hint: {"x": 0.0, "y": 0.7}
+                font_size: '15sp'
+                size_hint: (1.0, None)
+                text_size: self.width, None
+                halign: 'center'
 
             Button:
-                id: answer0
-                on_press: root.controller.answer_button_on_press(self)
+                id: next_button
+                text: 'next'
+                opacity: 0
+                size_hint: (0.4, 0.1)
+                pos_hint: {'x': 0.3, 'y': 0.6}
+                on_press: root.controller.next_button_on_press()
+                on_press: root.next_quiz()
+                disabled: True
 
-            Button:
-                id: answer1
-                on_press: root.controller.answer_button_on_press(self)
+            GridLayout:
+                id: answer_button_layout
+                cols: 2
+                pos_hint: {'x': 0.0, 'y': 0.1}
+                size_hint: (1.0, 0.4)
 
-            Button:
-                id: answer2
-                on_press: root.controller.answer_button_on_press(self)
+                Button:
+                    id: answer0
+                    on_press: root.controller.answer_button_on_press(self)
 
-            Button:
-                id: answer3
-                on_press: root.controller.answer_button_on_press(self)
+                Button:
+                    id: answer1
+                    on_press: root.controller.answer_button_on_press(self)
+
+                Button:
+                    id: answer2
+                    on_press: root.controller.answer_button_on_press(self)
+
+                Button:
+                    id: answer3
+                    on_press: root.controller.answer_button_on_press(self)

@@ -14,13 +14,11 @@ from Controller import DictionaryController
 class Dictionary(Screen):
 
     def __init__(self, **kwargs):
-        self.controller = DictionaryController(self)
+        self.controller = DictionaryController()
         super().__init__(**kwargs)
 
-    #TODO MOVE DictionaryEntry().select() to controller
-    #TODO: if there are no notes, then write: no notes
     def on_enter(self):
-        for i in DictionaryEntry().select():
+        for i in self.controller.show_dictionary_entries():
             self.ids.container.add_widget(
                 ListItem(
                     id=i.id,

@@ -1,16 +1,20 @@
-from Controller.main_screen import MainScreenController
 
 from kivymd.app import MDApp
+
+from View import MainScreenView
+
+#from kivy.core.window import Window
+#Window.size = (310, 300)
 
 
 class LLTApp(MDApp):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.controller = MainScreenController()
+
 
     def build(self):
-        return self.controller.get_screen()
+        return MainScreenView()
 
 
 if __name__ == '__main__':

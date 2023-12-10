@@ -27,7 +27,8 @@ class Dictionary(Screen):
                     tertiary_text=f"notes: {i.notes}",
                 )
             )
-
+    def on_leave(self):
+        self.ids.container.clear_widgets()
 
     def remove_item(self, dictionary_entry):
 
@@ -37,9 +38,6 @@ class Dictionary(Screen):
 
         #removes the record from the database
         Dictionary().controller.remove_dictionary_entry(dictionary_entry)
-
-    def show_search_results(self):
-        print('it works')
 
     def show_popup(self, instance):
         popup = PopupContent(instance)

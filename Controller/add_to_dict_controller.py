@@ -21,11 +21,15 @@ class AddToDictController:
         dictionary_entry.save()
 
     def translate(self, text):
-        return self.translation_service.translate(text)
+        try:
+            translation = self.translation_service.translate(text)
+            return translation
+        except TranslationServiceError as e:
+            return 'Translation Error'
 
     def refresh_button_on_press(self):
         word = self.view.get_word()
 
         if word:
-            translation = self.translation_service.translate(word)
+            translation = self.translate(word)
             self.view.set_suggested_translation(translation)

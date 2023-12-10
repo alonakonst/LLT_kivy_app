@@ -32,7 +32,7 @@ class Practise(Screen):
         self.ids.question.text = f"Which of the following is the best translation for: {quiz.question!r}"
 
         for answer_button, answer_text in zip(self.ids.answer_button_layout.children, quiz.answers):
-            answer_button.background_color = self.DEFAULT_BUTTON_COLOR
+            answer_button.md_bg_color = self.DEFAULT_BUTTON_COLOR
             answer_button.text = answer_text
 
     def enable_next_button(self):
@@ -44,10 +44,10 @@ class Practise(Screen):
         self.ids.next_button.disabled = True
 
     def on_correct_answer(self, answer_button):
-        answer_button.background_color = self.ANSWER_BUTTON_CORRECT_COLOR
+        answer_button.md_bg_color = self.ANSWER_BUTTON_CORRECT_COLOR
 
     def on_incorrect_answer(self, answer_button, correct_answer):
-        answer_button.background_color = self.ANSWER_BUTTON_INCORRECT_COLOR
+        answer_button.md_bg_color = self.ANSWER_BUTTON_INCORRECT_COLOR
         self.ids.correct_answer.text = f'The correct answer is: {correct_answer} '
 
     def next_quiz(self):

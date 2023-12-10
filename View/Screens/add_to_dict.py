@@ -41,7 +41,7 @@ class AddToDict(Screen):
         # clearing out word/phrase textfield
         self.ids.word.text = ''
         self.ids.word.hint_text = 'Enter a new word or phrase: '
-        self.ids.word.hint_text_color = "darkgray"
+        self.ids.word.hint_text_color = "darkblue"
 
         #clearing out translation
         AddToDict.selected_translations = []
@@ -49,10 +49,8 @@ class AddToDict(Screen):
         self.ids.suggested_translation.text = '...'
         self.ids.suggested_checkbox.active = False
 
-
         self.ids.users_checkbox.active = False
         self.ids.condition_message.text = ""
-
 
         #clearing out notes field
         self.ids.notes.text = ''
@@ -67,7 +65,6 @@ class AddToDict(Screen):
             self.ids.word.hint_text = 'You should enter a word or a phrase'
             self.ids.word.hint_text_color = "darkred"
             return False
-
 
         #handles the case when user's translation field is empty but the checkbox is selected
         elif self.ids.users_checkbox.active and self.ids.users_translation.text=='':

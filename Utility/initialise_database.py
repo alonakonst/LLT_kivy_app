@@ -139,9 +139,6 @@ def create_dummy_database():
                     notes='lønnen er god').save()
 
 
-
-
-
 def initialise_database(*, dummy=False):
     with database:
         database.create_tables(TABLES, safe=True)
